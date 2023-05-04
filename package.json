@@ -48,6 +48,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "html-webpack-plugin": "5.5.1",
+    "husky": "8.0.3",
     "prettier": "2.8.8",
     "ts-loader": "9.4.2",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
