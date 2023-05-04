@@ -34,3 +34,6 @@ Thumbs.db
 
 # environment variables
 .env
+
+# yarn
+yarn-error.log

@@ -8,10 +8,19 @@
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "yarn run lint-fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "gh-pages": "5.0.0",
+    "lint-staged": "13.2.2",
+    "mrm": "2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0"
