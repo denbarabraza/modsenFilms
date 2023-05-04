@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -24,6 +25,14 @@ module.exports = {
     port: 3000,
   },
   resolve: {
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: path.join(__dirname, './tsconfig.json'),
+      }),
+    ],
+    alias: {
+      '@/*': path.resolve(__dirname, 'src'),
+    },
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [
