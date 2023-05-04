@@ -9,7 +9,8 @@
     "start": "webpack serve --mode development",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "lint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src"
+    "lint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [
