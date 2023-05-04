@@ -1,13 +1,17 @@
 {
   "name": "modsenFilms",
+  "homepage": "https://denbarabraza.github.io/modsenFilms",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "gh-pages": "5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0"
