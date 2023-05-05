@@ -1,15 +1,25 @@
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
+import { Main } from '@/components/Main';
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    margin: 0;
+    background: papayawhip;
+    position: relative;
+  }
+`;
 
 export const App = () => {
   return (
-    <div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-    </div>
+    <>
+      <GlobalStyles />
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 };
