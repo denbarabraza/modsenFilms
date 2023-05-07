@@ -21,16 +21,34 @@ const InnerWrapper = styled.div`
   justify-content: space-between;
   border: 1px solid black;
 `;
+const BlockLogoApp = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  border: 1px solid black;
+`;
+const BlockNameApp = styled.div`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+`;
+const BlockImageApp = styled.img`
+  width: 35px;
+  height: 30px;
+`;
 
 export const Header = () => {
   return (
     <Container>
       <Wrapper>
         <InnerWrapper>
-          <div>
-            <img alt='youtube' src={youtube} />
-            ModsenFilms
-          </div>
+          <BlockLogoApp>
+            <BlockImageApp alt='youtube' src={youtube} />
+            <BlockNameApp>ModsenFilms</BlockNameApp>
+          </BlockLogoApp>
           <div>SearchPanel</div>
           <SwitchThemeButton />
         </InnerWrapper>

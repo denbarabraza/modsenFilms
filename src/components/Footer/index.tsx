@@ -46,7 +46,6 @@ const BlockInfo = styled.div`
   flex-direction: row;
   gap: 32px;
   border: 1px solid black;
-  margin-left: 45px;
 `;
 const BlockInfoEl = styled.a`
   font-style: normal;
