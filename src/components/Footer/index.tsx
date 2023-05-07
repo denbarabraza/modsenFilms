@@ -30,8 +30,8 @@ const BlockSocial = styled.div`
   gap: 30px;
 `;
 const ImageFooter = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 `;
 const BlockAboutUs = styled.div`
   display: flex;
@@ -41,20 +41,37 @@ const BlockAboutUs = styled.div`
   width: 100%;
   margin: 20px 0 35px 0;
 `;
-const BlockInformation = styled.div`
+const BlockInfo = styled.div`
   display: flex;
   flex-direction: row;
   gap: 32px;
   border: 1px solid black;
   margin-left: 45px;
 `;
-const BlockInformationItem = styled.a`
+const BlockInfoEl = styled.a`
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
   line-height: 23px;
   color: rgba(0, 0, 0, 0.83);
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: rgb(243, 109, 2);
+  }
+`;
+const BlockInfoItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const BlockRightsInfo = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+
+  color: rgba(0, 0, 0, 0.4);
 `;
 
 export const Footer = () => {
@@ -63,30 +80,30 @@ export const Footer = () => {
       <Wrapper>
         <InnerWrapper>
           <BlockAboutUs>
-            <BlockInformation>
-              <div>
+            <BlockInfo>
+              <BlockInfoItem>
                 {aboutUsData
                   .filter(item => item.id % 2 === 1)
                   .map(item => {
                     return (
-                      <BlockInformationItem key={item.id}>
-                        <a>{item.value}</a>
-                      </BlockInformationItem>
+                      <BlockInfoEl key={item.id} href={item.href} target='_blank'>
+                        {item.value}
+                      </BlockInfoEl>
                     );
                   })}
-              </div>
-              <div>
+              </BlockInfoItem>
+              <BlockInfoItem>
                 {aboutUsData
                   .filter(item => item.id % 2 === 0)
                   .map(item => {
                     return (
-                      <BlockInformationItem key={item.id}>
+                      <BlockInfoEl key={item.id} href={item.href} target='_blank'>
                         {item.value}
-                      </BlockInformationItem>
+                      </BlockInfoEl>
                     );
                   })}
-              </div>
-            </BlockInformation>
+              </BlockInfoItem>
+            </BlockInfo>
             <BlockSocial>
               {socialData.map(s => {
                 return (
@@ -97,7 +114,9 @@ export const Footer = () => {
               })}
             </BlockSocial>
           </BlockAboutUs>
-          <div>© Copyright 2023 Modsen. All rights reserved | Privacy policy</div>
+          <BlockRightsInfo>
+            © Copyright 2023 Modsen. All rights reserved | Privacy policy
+          </BlockRightsInfo>
         </InnerWrapper>
       </Wrapper>
     </Container>
