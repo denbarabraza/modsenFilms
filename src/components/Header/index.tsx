@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import youtube from '@/assets/image/youtube.png';
 import { SwitchThemeButton } from '@/components/SwitchThemeButton';
 
 const Container = styled.div`
@@ -26,7 +27,10 @@ export const Header = () => {
     <Container>
       <Wrapper>
         <InnerWrapper>
-          <div>ModsenFilms</div>
+          <div>
+            <img alt='youtube' src={youtube} />
+            ModsenFilms
+          </div>
           <div>SearchPanel</div>
           <SwitchThemeButton />
         </InnerWrapper>
