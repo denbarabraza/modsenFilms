@@ -7,7 +7,8 @@ import { socialData } from '@/constans/socialData';
 const Container = styled.div`
   width: 100%;
   min-height: 12vh;
-  background-color: #0ee0e7;
+  background-color: #ececec;
+  box-shadow: 0 -4px 4px -2px rgba(0, 0, 0, 0.2);
 `;
 const Wrapper = styled.div`
   width: 90vw;
@@ -18,20 +19,21 @@ const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   justify-content: space-between;
   height: 100%;
-  border: 1px solid black;
-  margin-bottom: 10px;
 `;
 const BlockSocial = styled.div`
-  border: 1px solid black;
   display: flex;
   gap: 30px;
 `;
-const ImageFooter = styled.img`
+const IconFooter = styled.img`
   width: 25px;
   height: 25px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.25);
+  }
 `;
 const BlockAboutUs = styled.div`
   display: flex;
@@ -39,13 +41,12 @@ const BlockAboutUs = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 20px 0 35px 0;
+  margin: 20px 0 20px 0;
 `;
 const BlockInfo = styled.div`
   display: flex;
   flex-direction: row;
   gap: 32px;
-  border: 1px solid black;
 `;
 const BlockInfoEl = styled.a`
   font-style: normal;
@@ -66,10 +67,10 @@ const BlockInfoItem = styled.div`
 `;
 const BlockRightsInfo = styled.div`
   font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 28px;
-
+  padding-bottom: 10px;
   color: rgba(0, 0, 0, 0.4);
 `;
 
@@ -107,7 +108,7 @@ export const Footer = () => {
               {socialData.map(s => {
                 return (
                   <a key={s.id} href={s.href} target='_blank' rel='noreferrer'>
-                    <ImageFooter src={s.img} />
+                    <IconFooter src={s.img} />
                   </a>
                 );
               })}

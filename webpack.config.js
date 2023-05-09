@@ -49,6 +49,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Modsen Films',
+      favicon: path.join(__dirname, 'public', 'icon.png'),
       template: path.join(__dirname, 'public', 'index.html'),
     }),
   ],
