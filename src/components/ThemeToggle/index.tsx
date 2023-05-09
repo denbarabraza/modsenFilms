@@ -1,33 +1,35 @@
 import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
-import { IContainerTheme } from '@/components/App';
+import { darkTheme, lightTheme } from '@/assets/theme/theme';
+import { ThemeEnum } from '@/constans/themes';
 
-const Container = styled.div`
+const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 20px;
+  justify-content: flex-end;
+  width: 150px;
 `;
 
-const Label = styled.label`
+const ToggleLabel = styled.label`
   display: flex;
   align-items: center;
   font-size: 1rem;
   user-select: none;
 `;
 
-const Input = styled.input`
+const ToggleInput = styled.input`
   opacity: 0;
   width: 0;
   height: 0;
 `;
 
-const Slider = styled.span<{ theme: IContainerTheme }>`
+const ToggleSlider = styled.span`
   width: 50px;
-  height: 30px;
+  height: 25px;
   border-radius: 15px;
-  background-color: ${({ theme }) => theme.toggleBackground};
+  background-color: ${props => props.theme.colors.toggleBackground};
+  border: 1px solid ${props => props.theme.colors.toggleBorder};
   position: relative;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
@@ -35,40 +37,39 @@ const Slider = styled.span<{ theme: IContainerTheme }>`
   &::before {
     content: '';
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.toggleCircle};
-    top: 3px;
+    background-color: ${props => props.theme.colors.toggleCircle};
+    top: 2px;
     left: 3px;
     transition: transform 0.2s ease-in-out;
   }
 
-  ${Input}:checked + & {
-    background-color: ${({ theme }) => theme.toggleBackgroundChecked};
+  ${ToggleInput}:checked + & {
+    background-color: ${props => props.theme.colors.toggleBackgroundChecked};
   }
 
-  ${Input}:checked + &::before {
+  ${ToggleInput}:checked + &::before {
     transform: translateX(20px);
   }
 `;
 
 export const ThemeToggle = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [isChecked, setIsChecked] = useState(theme === 'dark');
+  const [isChecked, setIsChecked] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleToggleChange = () => {
     setIsChecked(!isChecked);
-    toggleTheme(isChecked ? 'light' : 'dark');
+    setTheme(theme === ThemeEnum.light ? darkTheme : lightTheme);
   };
 
   return (
-    <Container>
-      <Label>
-        {isChecked ? 'Dark mode' : 'Light mode'}
-        <Input type='checkbox' checked={isChecked} onChange={handleToggleChange} />
-        <Slider />
-      </Label>
-    </Container>
+    <ToggleContainer>
+      <ToggleLabel>
+        <ToggleInput type='checkbox' checked={isChecked} onChange={handleToggleChange} />
+        <ToggleSlider />
+      </ToggleLabel>
+    </ToggleContainer>
   );
 };
