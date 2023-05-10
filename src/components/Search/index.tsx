@@ -34,7 +34,7 @@ const InputItem = styled.input`
   padding-left: 10px;
   transition: all 0.2s ease 0s;
   font-family: 'Rockwell Condensed', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   border: 1px solid #939292;
 

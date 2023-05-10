@@ -26,7 +26,7 @@ const BlockCategory = styled.div`
   align-items: center;
   flex-wrap: wrap;
   height: 5vh;
-  @media (max-width: 465px) {
+  @media (max-width: 467px) {
     height: 9vh;
     padding-bottom: 20px;
   }
@@ -51,10 +51,10 @@ const BlockFilmsList = styled.div`
   }
 `;
 const FilmsCard = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.filmsCardBackground};
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px 2px ${props => props.theme.colors.boxShadow};
 `;
 
 const FilmsPoster = styled.img`

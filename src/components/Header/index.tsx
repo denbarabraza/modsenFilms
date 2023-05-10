@@ -59,17 +59,10 @@ const BlockNameApp = styled.div`
   font-size: 20px;
   line-height: 21px;
   color: ${props => props.theme.colors.fontColor};
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
 `;
 const BlockImageApp = styled.img`
   max-width: 33px;
   max-height: 33px;
-  @media (max-width: 768px) {
-    max-width: 23px;
-    max-height: 23px;
-  }
 `;
 
 export const Header = () => {

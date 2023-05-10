@@ -8,6 +8,7 @@ export interface ITheme {
     selectFontColor: string;
     headerFooterBackground: string;
     toggleBackground: string;
+    filmsCardBackground: string;
     toggleBackgroundChecked: string;
     toggleCircle: string;
     toggleBorder: string;
