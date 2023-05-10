@@ -42,6 +42,10 @@ const BlockAboutUs = styled.div`
   align-items: center;
   width: 100%;
   margin: 20px 0 20px 0;
+  @media (max-width: 605px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 const BlockInfo = styled.div`
   display: flex;
@@ -60,18 +64,27 @@ const BlockInfoEl = styled.a`
   &:hover {
     color: rgb(241, 121, 0);
   }
+
+  @media (max-width: 465px) {
+    font-size: 16px;
+  }
 `;
 const BlockInfoItem = styled.div`
   display: flex;
   flex-direction: column;
 `;
 const BlockRightsInfo = styled.div`
+  text-align: center;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
   padding-bottom: 10px;
   color: ${props => props.theme.colors.fontColor};
+
+  @media (max-width: 465px) {
+    font-size: 14px;
+  }
 `;
 
 export const Footer = () => {

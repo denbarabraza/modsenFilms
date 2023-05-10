@@ -5,11 +5,21 @@ import del from '@/assets/image/close.png';
 import { Button } from '@/components/Button';
 
 const Container = styled.div`
-  width: 450px;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  @media (max-width: 768px) {
+    width: 25%;
+  }
+  @media (max-width: 574px) {
+    width: 100%;
+    grid-area: 2 / 1 / 3 / 3;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+  }
 `;
 const InputContainer = styled.div`
   height: 33px;
@@ -30,6 +40,9 @@ const InputItem = styled.input`
 
   &:focus {
     border: 1px solid #212121;
+  }
+  @media (max-width: 768px) {
+    width: 250px;
   }
 `;
 const DelIcon = styled.img`

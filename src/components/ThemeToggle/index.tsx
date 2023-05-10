@@ -8,7 +8,16 @@ const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 150px;
+  width: 30%;
+  @media (max-width: 768px) {
+    width: 25%;
+  }
+  @media (max-width: 574px) {
+    grid-area: 1 / 2 / 2 / 3;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const ToggleLabel = styled.label`
