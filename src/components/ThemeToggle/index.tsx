@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 import { ThemeEnum } from '@/constans/themes';
 import { useTheme } from '@/hooks/useTheme';
 
-const ToggleContainer = styled.div`
+const flexEndCenter = `
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 30%;
-  @media (max-width: 768px) {
-    width: 25%;
-  }
-  @media (max-width: 574px) {
-    grid-area: 1 / 2 / 2 / 3;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
+`;
+
+const ToggleContainer = styled.div<{ open: boolean }>`
+  ${flexEndCenter};
+
+  @media (max-width: 602px) {
+    display: ${({ open }) => (open ? flexEndCenter : 'none')};
   }
 `;
 
@@ -64,17 +62,23 @@ const ToggleSlider = styled.span`
   }
 `;
 
-export const ThemeToggle = () => {
+interface IThemeToggle {
+  open?: boolean;
+}
+
+export const ThemeToggle: FC<IThemeToggle> = ({ open }) => {
   const [isChecked, setIsChecked] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const handleToggleChange = () => {
+  const handleToggleChange = useCallback(() => {
     setIsChecked(!isChecked);
     setTheme(theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light);
-  };
+  }, [isChecked, theme]);
+
+  console.log(isChecked);
 
   return (
-    <ToggleContainer>
+    <ToggleContainer open={open || false}>
       <ToggleLabel>
         <ToggleInput type='checkbox' checked={isChecked} onChange={handleToggleChange} />
         <ToggleSlider />

@@ -13,4 +13,7 @@ export interface ITheme {
     toggleCircle: string;
     toggleBorder: string;
   };
+  mediaQueries: {
+    mobile: string;
+  };
 }

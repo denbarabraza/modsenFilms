@@ -69,9 +69,8 @@ const ButtonItemOther = styled.button`
   border-radius: 30px;
   transition: all 0.2s ease-in-out;
   font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 22px;
 
   color: #ffffff;
 

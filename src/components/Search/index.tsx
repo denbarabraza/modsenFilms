@@ -5,15 +5,11 @@ import del from '@/assets/image/close.png';
 import { Button } from '@/components/Button';
 
 const Container = styled.div`
-  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  @media (max-width: 768px) {
-    width: 25%;
-  }
-  @media (max-width: 574px) {
+  @media (max-width: 602px) {
     width: 100%;
     grid-area: 2 / 1 / 3 / 3;
     justify-content: center;

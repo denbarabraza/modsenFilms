@@ -18,6 +18,9 @@ const baseTheme: ITheme = {
     toggleCircle: '#F17900',
     toggleBorder: '#F17900',
   },
+  mediaQueries: {
+    mobile: '@media (max-width: 767px)',
+  },
 };
 
 export const lightTheme: DefaultTheme = {
@@ -42,5 +45,8 @@ export const darkTheme: DefaultTheme = {
     toggleBackgroundChecked: '#F17900',
     toggleCircle: '#fff',
     toggleBorder: '#F17900',
+  },
+  mediaQueries: {
+    mobile: '@media (max-width: 767px)',
   },
 };

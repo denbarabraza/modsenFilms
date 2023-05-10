@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import youtube from '@/assets/image/youtube.png';
+import { Menu } from '@/components/Menu';
 import { Search } from '@/components/Search';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -13,10 +14,14 @@ const Container = styled.div`
   height: 8vh;
   background-color: ${props => props.theme.colors.headerFooterBackground};
 
-  @media (max-width: 574px) {
+  @media (max-width: 602px) {
     height: 12vh;
     width: 100vw;
-    padding: 10px 0;
+    padding: 5px 0;
+  }
+  @media (max-width: 376px) {
+    width: 100vw;
+    padding: 15px 0;
   }
 `;
 const Wrapper = styled.div`
@@ -25,10 +30,9 @@ const Wrapper = styled.div`
   padding: 10px 0;
 `;
 const InnerWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 574px) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 602px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -41,11 +45,8 @@ const BlockLogoApp = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 5px;
-  width: 30%;
-  @media (max-width: 768px) {
-    width: 25%;
-  }
-  @media (max-width: 574px) {
+
+  @media (max-width: 602px) {
     justify-content: flex-start;
     align-items: center;
     grid-area: 1 / 1 / 2 / 2;
@@ -80,6 +81,7 @@ export const Header = () => {
           </BlockLogoApp>
           <Search initialValue='' onChange={searchByName} />
           <ThemeToggle />
+          <Menu />
         </InnerWrapper>
       </Wrapper>
     </Container>
