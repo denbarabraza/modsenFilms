@@ -7,8 +7,8 @@ import { socialData } from '@/constans/socialData';
 const Container = styled.div`
   width: 100%;
   min-height: 12vh;
-  background-color: #ececec;
-  box-shadow: 0 -4px 4px -2px rgba(0, 0, 0, 0.2);
+  background-color: ${props => props.theme.colors.headerFooterBackground};
+  box-shadow: 0 -4px 4px -2px ${props => props.theme.colors.boxShadow};
 `;
 const Wrapper = styled.div`
   width: 90vw;
@@ -50,15 +50,15 @@ const BlockInfo = styled.div`
 `;
 const BlockInfoEl = styled.a`
   font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 23px;
-  color: rgba(0, 0, 0, 0.83);
+  color: ${props => props.theme.colors.fontColor};
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: rgb(243, 109, 2);
+    color: rgb(241, 121, 0);
   }
 `;
 const BlockInfoItem = styled.div`
@@ -71,7 +71,7 @@ const BlockRightsInfo = styled.div`
   font-size: 18px;
   line-height: 28px;
   padding-bottom: 10px;
-  color: rgba(0, 0, 0, 0.4);
+  color: ${props => props.theme.colors.fontColor};
 `;
 
 export const Footer = () => {

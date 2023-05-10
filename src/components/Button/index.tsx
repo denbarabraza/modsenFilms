@@ -59,7 +59,7 @@ const ButtonItemCategories = styled.button`
   }
 `;
 const ButtonItemOther = styled.button`
-  background-color: rgb(243, 109, 2);
+  background-color: rgb(241, 121, 0);
   text-align: center;
   margin: 2px;
   padding: 5px 10px;

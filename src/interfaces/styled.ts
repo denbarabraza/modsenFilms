@@ -1,10 +1,12 @@
 export interface ITheme {
   colors: {
     fontColor: string;
-    backgroundColor: string;
+    mainBackground: string;
+    mainBorder: string;
+    boxShadow: string;
     selectBackground: string;
     selectFontColor: string;
-    headerBackground: string;
+    headerFooterBackground: string;
     toggleBackground: string;
     toggleBackgroundChecked: string;
     toggleCircle: string;

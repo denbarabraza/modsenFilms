@@ -7,6 +7,7 @@ import { categoriesFilms } from '@/constans/categoriesFilms';
 const Container = styled.div`
   width: 100%;
   min-height: 80vh;
+  background-color: ${props => props.theme.colors.mainBackground};
 `;
 const Wrapper = styled.div`
   width: 90vw;
@@ -18,8 +19,8 @@ const InnerWrapper = styled.div`
 `;
 const BlockCategory = styled.div`
   display: flex;
-  margin: 10px 0;
-  border-bottom: 1px solid #bebebe;
+  padding: 7px 0;
+  border-bottom: 1px solid ${props => props.theme.colors.mainBorder};
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -30,9 +31,8 @@ const BlockShowMore = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   height: 8vh;
-  border-top: 1px solid #bebebe;
+  border-top: 1px solid ${props => props.theme.colors.mainBorder};
 `;
 const BlockFilmsList = styled.div`
   display: flex;

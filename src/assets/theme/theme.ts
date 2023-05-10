@@ -5,15 +5,17 @@ import { ITheme } from '@/interfaces/styled';
 
 const baseTheme: ITheme = {
   colors: {
-    fontColor: '#19191B',
-    backgroundColor: '#E5E4E8',
+    fontColor: '#000000',
+    mainBackground: '#fff',
+    mainBorder: '#E5E4E8',
+    boxShadow: '#E5E4E8',
     selectBackground: '#ffffff',
     selectFontColor: '#19191B',
-    headerBackground: '#383838',
+    headerFooterBackground: '#E5E4E8',
     toggleBackground: '#fff',
     toggleBackgroundChecked: '#fff',
-    toggleCircle: '#f36d02',
-    toggleBorder: '#f36d02',
+    toggleCircle: '#F17900',
+    toggleBorder: '#F17900',
   },
 };
 
@@ -29,12 +31,14 @@ export const darkTheme: DefaultTheme = {
   colors: {
     ...baseTheme.colors,
     fontColor: '#ffffff',
-    backgroundColor: '#323030',
+    mainBackground: '#4d4d4d',
+    mainBorder: '#F17900',
+    boxShadow: '#E5E4E8',
     selectBackground: '#E5E4E8',
-    headerBackground: '#C29545',
-    toggleBackground: '#f36d02',
-    toggleBackgroundChecked: '#ccc',
+    headerFooterBackground: '#191919',
+    toggleBackground: '#F17900',
+    toggleBackgroundChecked: '#F17900',
     toggleCircle: '#fff',
-    toggleBorder: '#f36d02',
+    toggleBorder: '#fff',
   },
 };

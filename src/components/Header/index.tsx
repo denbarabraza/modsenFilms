@@ -1,5 +1,5 @@
-import React, { FC, useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 import youtube from '@/assets/image/youtube.png';
 import { Search } from '@/components/Search';
@@ -11,8 +11,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 8vh;
-  background-color: #ececec;
-  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+  background-color: ${props => props.theme.colors.headerFooterBackground};
 `;
 const Wrapper = styled.div`
   width: 90vw;
@@ -36,7 +35,7 @@ const BlockNameApp = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 21px;
-  color: #000000;
+  color: ${props => props.theme.colors.fontColor};
 `;
 const BlockImageApp = styled.img`
   max-width: 33px;

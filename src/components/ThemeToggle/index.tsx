@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { darkTheme, lightTheme } from '@/assets/theme/theme';
 import { ThemeEnum } from '@/constans/themes';
+import { useTheme } from '@/hooks/useTheme';
 
 const ToggleContainer = styled.div`
   display: flex;
@@ -51,17 +51,17 @@ const ToggleSlider = styled.span`
   }
 
   ${ToggleInput}:checked + &::before {
-    transform: translateX(20px);
+    transform: translateX(25px);
   }
 `;
 
 export const ThemeToggle = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useTheme();
 
   const handleToggleChange = () => {
     setIsChecked(!isChecked);
-    setTheme(theme === ThemeEnum.light ? darkTheme : lightTheme);
+    setTheme(theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light);
   };
 
   return (
