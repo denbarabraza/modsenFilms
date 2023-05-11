@@ -11,17 +11,13 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 8vh;
+  height: 60px;
   background-color: ${props => props.theme.colors.headerFooterBackground};
 
   @media (max-width: 602px) {
-    height: 12vh;
+    height: 100px;
     width: 100vw;
     padding: 5px 0;
-  }
-  @media (max-width: 376px) {
-    width: 100vw;
-    padding: 15px 0;
   }
 `;
 const Wrapper = styled.div`

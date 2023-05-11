@@ -1,6 +1,6 @@
 import React, { RefObject, useEffect, useRef, useState } from 'react';
+import { BurgerMenu } from 'src/components/BurgerMenu';
 
-import Hamburger from '@/components/Hamburger';
 import { StyledLink, StyledMenu } from '@/components/Menu/styled';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
@@ -14,11 +14,12 @@ export const Menu = () => {
   return (
     <div ref={node}>
       <StyledMenu open={open}>
+        Here you can change the theme...
         <StyledLink onClick={() => close()}>
           <ThemeToggle open={open} />
         </StyledLink>
       </StyledMenu>
-      <Hamburger open={open} setOpen={setOpen} />
+      <BurgerMenu open={open} setOpen={setOpen} />
     </div>
   );
 };

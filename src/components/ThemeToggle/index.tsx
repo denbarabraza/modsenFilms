@@ -67,20 +67,20 @@ interface IThemeToggle {
 }
 
 export const ThemeToggle: FC<IThemeToggle> = ({ open }) => {
-  const [isChecked, setIsChecked] = useState(false);
   const { theme, setTheme } = useTheme();
 
   const handleToggleChange = useCallback(() => {
-    setIsChecked(!isChecked);
     setTheme(theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light);
-  }, [isChecked, theme]);
-
-  console.log(isChecked);
+  }, [theme]);
 
   return (
     <ToggleContainer open={open || false}>
       <ToggleLabel>
-        <ToggleInput type='checkbox' checked={isChecked} onChange={handleToggleChange} />
+        <ToggleInput
+          type='checkbox'
+          checked={theme !== ThemeEnum.light}
+          onChange={handleToggleChange}
+        />
         <ToggleSlider />
       </ToggleLabel>
     </ToggleContainer>

@@ -10,8 +10,11 @@ export const StyledMenu = styled.nav<{ open: boolean }>`
   z-index: 4;
 
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  padding: 10rem 0;
+  gap: 10px;
+  color: ${props => props.theme.colors.fontColor};
 
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};

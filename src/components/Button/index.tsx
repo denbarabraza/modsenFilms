@@ -39,6 +39,7 @@ const ButtonItemCategories = styled.button`
   border: none;
   border-radius: 30px;
   transition: all 0.2s ease-in-out;
+  background-color: #e5e4e8;
 
   &:disabled {
     opacity: 0.5;

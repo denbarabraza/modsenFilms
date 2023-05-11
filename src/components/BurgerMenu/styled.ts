@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHamburger = styled.button<{ open: boolean }>`
+export const StyledBurgerMenu = styled.button<{ open: boolean }>`
   @media (min-width: 602px) {
     display: none;
   }
