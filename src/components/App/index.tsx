@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React from 'react';
 
+import { GlobalStyles } from '@/components/App/styled';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Main } from '@/components/Main';
 import { Theme } from '@/context';
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    margin: 0;
-    position: relative;
-    box-sizing: border-box;
-    font-family: "Rockwell Condensed", sans-serif;
-  }
-`;
 
 export const App = () => {
   return (
