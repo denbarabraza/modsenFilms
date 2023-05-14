@@ -53,7 +53,7 @@ export const FilmsCard = styled.div`
   box-shadow: 0 2px 3px 2px ${props => props.theme.colors.boxShadow};
 
   display: grid;
-  grid-template-rows: 0.5fr 1.5fr 1fr;
+  grid-template-rows: 1.5fr 0.25fr 1fr;
 `;
 
 export const FilmsPoster = styled.img`
@@ -64,9 +64,10 @@ export const FilmsPoster = styled.img`
   margin-bottom: 10px;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.div`
   text-align: center;
   font-size: 1.3rem;
+  font-weight: 600;
 `;
 
 export const Description = styled.p`

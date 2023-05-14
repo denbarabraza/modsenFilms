@@ -19,8 +19,8 @@ export const CBlockFilmsList = memo(() => {
         allFilms.results.map(film => {
           return (
             <FilmsCard key={film.imdbid}>
-              <Title>{film.title}</Title>
               <FilmsPoster src={film.imageurl[0] || nopicture} alt={film.title} />
+              <Title>{film.title}</Title>
               <Description>
                 <div>
                   <b>Genre: </b>
