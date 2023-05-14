@@ -36,7 +36,7 @@ export const BlockShowMore = styled.div`
 `;
 export const BlockFilmsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   padding: 20px 0;
   @media (max-width: 574px) {
