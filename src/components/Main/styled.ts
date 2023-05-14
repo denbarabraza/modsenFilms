@@ -48,8 +48,12 @@ export const BlockFilmsList = styled.div`
 export const FilmsCard = styled.div`
   background-color: ${props => props.theme.colors.filmsCardBackground};
   padding: 20px;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 3px 2px ${props => props.theme.colors.boxShadow};
+
+  display: grid;
+  grid-template-rows: 0.5fr 1.5fr 1fr;
 `;
 
 export const FilmsPoster = styled.img`
@@ -57,4 +61,17 @@ export const FilmsPoster = styled.img`
   height: 250px;
   object-fit: contain;
   border-radius: 5px;
+  margin-bottom: 10px;
+`;
+
+export const Title = styled.h2`
+  text-align: center;
+  font-size: 1.3rem;
+`;
+
+export const Description = styled.p`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1rem;
 `;
