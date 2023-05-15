@@ -12,10 +12,16 @@ import {
 import { Menu } from '@/components/Menu';
 import { Search } from '@/components/Search';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { getTitleSelector } from '@/selectors/filmsSelectors';
+import { setSearch } from '@/store/slice/filmsSlice';
 
 export const Header = memo(() => {
+  const dispatch = useAppDispatch();
+  const inputValue = useAppSelector(getTitleSelector);
   const searchByName = (value: string) => {
-    console.log(value);
+    dispatch(setSearch(value));
   };
 
   return (
@@ -26,7 +32,7 @@ export const Header = memo(() => {
             <BlockImageApp alt='youtube' src={youtube} />
             <BlockNameApp>ModsenFilms</BlockNameApp>
           </BlockLogoApp>
-          <Search initialValue='' onChange={searchByName} />
+          <Search initialValue={inputValue} onChange={searchByName} />
           <ThemeToggle />
           <Menu />
         </InnerWrapper>

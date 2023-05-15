@@ -3,31 +3,42 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IFilms } from '@/interfaces/films';
 
 export const filmsAPI = createApi({
-  reducerPath: 'filmsAPI',
+  reducerPath: 'moviesAPI',
+  tagTypes: ['Films'],
+  keepUnusedDataFor: 86400,
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://ott-details.p.rapidapi.com',
     headers: {
-      'X-RapidAPI-Key': 'bee0833f04msh3bed890896bf7f5p1587f0jsnd77a7e693991',
+      'X-RapidAPI-Key': 'a75de0e461msh8c1a342d760e8a7p105048jsnea0efb3f9393',
       'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
     },
   }),
-  endpoints: build => ({
-    fetchAllFilms: build.query<IFilms, string>({
+  endpoints: builder => ({
+    fetchAllFilms: builder.query<IFilms, string>({
       query: () => ({
         url: '/advancedsearch',
       }),
+      providesTags: ['Films'],
+    }),
+    fetchByGenreFilms: builder.query<IFilms, string>({
+      query: (genre: string) => ({
+        url: '/advancedsearch',
+        params: { genre },
+      }),
+      providesTags: ['Films'],
+    }),
+    fetchByTitleFilms: builder.query<IFilms, string>({
+      query: (title: string) => ({
+        url: '/search',
+        params: { title },
+      }),
+      providesTags: ['Films'],
     }),
   }),
-
-  // reducerPath: 'filmsAPI',
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: 'https://jsonplaceholder.typicode.com',
-  // }),
-  // endpoints: build => ({
-  //   fetchAllFilms: build.query<IFilms[], string>({
-  //     query: () => ({
-  //       url: '/todos',
-  //     }),
-  //   }),
-  // }),
 });
+
+export const {
+  useFetchAllFilmsQuery,
+  useFetchByGenreFilmsQuery,
+  useFetchByTitleFilmsQuery,
+} = filmsAPI;

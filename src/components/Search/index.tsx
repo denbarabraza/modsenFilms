@@ -11,10 +11,6 @@ import {
 } from '@/components/Search/styled';
 
 export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
-
   const [value, setValue] = useState<string>(initialValue);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +22,10 @@ export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
   const onClickDelHandler = () => {
     setValue('');
   };
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   return (
     <Container>
