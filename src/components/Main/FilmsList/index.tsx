@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Loader } from 'src/components/Loader';
 
 import nopicture from '@/assets/image/nopicture.png';
 import {
@@ -35,7 +36,7 @@ export const CBlockFilmsList = memo(() => {
     });
 
   if (allFilmsLoading || filmsByGenreLoading || filmsByTitleLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (allFilmsError || filmsByGenreError || filmsByTitleError) {
@@ -48,7 +49,7 @@ export const CBlockFilmsList = memo(() => {
         return (
           <FilmsCard key={film.imdbid}>
             <FilmsPoster
-              src={film.imageurl.length > 0 ? film.imageurl[0] : nopicture}
+              src={film.imageurl ? film.imageurl[0] : nopicture}
               alt={film.title}
             />
             <Title>{film.title}</Title>
