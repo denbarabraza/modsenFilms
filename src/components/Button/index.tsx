@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useState } from 'react';
 
 import search from '@/assets/image/search.png';
 import { IButton } from '@/components/Button/interface';
@@ -8,8 +8,11 @@ import {
   ButtonItemSearch,
   SearchIMG,
 } from '@/components/Button/styled';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { getGenreSelector } from '@/selectors/filmsSelectors';
 
 export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
+  const genre = useAppSelector(getGenreSelector);
   let item;
 
   switch (type) {
@@ -22,7 +25,11 @@ export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
       break;
     case 'categories':
       item = (
-        <ButtonItemCategories onClick={callBack} type='button'>
+        <ButtonItemCategories
+          active={title.toLowerCase() === genre.toLowerCase()}
+          onClick={callBack}
+          type='button'
+        >
           {title}
         </ButtonItemCategories>
       );

@@ -2,19 +2,10 @@ import styled from 'styled-components';
 
 export const ButtonItemSearch = styled.button`
   height: 37px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease 0s;
-
-  &:disabled {
-    opacity: 0.5;
-
-    &:hover {
-      transform: none;
-    }
-  }
 
   &:hover {
     opacity: 0.9;
@@ -24,11 +15,12 @@ export const SearchIMG = styled.img`
   width: 15px;
   height: 15px;
 `;
-export const ButtonItemCategories = styled.button`
+export const ButtonItemCategories = styled.button<{ active: boolean }>`
+  background-color: ${({ active }) => (active ? '#F17900' : '#E5E4E8')};
+  cursor: ${({ active }) => (active ? 'default' : 'pointer')};
   text-align: center;
   margin: 2px;
   padding: 5px 10px;
-  cursor: pointer;
   font-family: 'Rockwell Condensed', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -36,15 +28,6 @@ export const ButtonItemCategories = styled.button`
   border: none;
   border-radius: 30px;
   transition: all 0.2s ease-in-out;
-  background-color: #e5e4e8;
-
-  &:disabled {
-    opacity: 0.5;
-
-    &:hover {
-      transform: none;
-    }
-  }
 
   &:hover {
     transform: translateY(-1px);
@@ -66,19 +49,10 @@ export const ButtonItemOther = styled.button`
   border: none;
   border-radius: 30px;
   transition: all 0.2s ease-in-out;
-  font-style: normal;
   font-size: 18px;
   line-height: 22px;
 
-  color: #ffffff;
-
-  &:disabled {
-    opacity: 0.5;
-
-    &:hover {
-      transform: none;
-    }
-  }
+  color: #212121;
 
   &:hover {
     transform: translateY(-2px);
@@ -86,6 +60,6 @@ export const ButtonItemOther = styled.button`
 
   &:active {
     transform: translateY(-1px);
-    background: #212121;
+    background: #e5e4e8;
   }
 `;

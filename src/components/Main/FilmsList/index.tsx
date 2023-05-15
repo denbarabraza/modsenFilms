@@ -22,7 +22,7 @@ export const CBlockFilmsList = memo(() => {
   const films = useAppSelector(getFilmsSelector);
   const title = useAppSelector(getTitleSelector);
 
-  const { isLoading: allFilmsLoading, error: allFilmsError } =
+  /* const { isLoading: allFilmsLoading, error: allFilmsError } =
     filmsAPI.useFetchAllFilmsQuery('', {
       skip: genre !== 'all',
     });
@@ -41,7 +41,7 @@ export const CBlockFilmsList = memo(() => {
 
   if (allFilmsError || filmsByGenreError || filmsByTitleError) {
     return <div>Oops! Something went wrong.</div>;
-  }
+  } */
 
   return (
     <BlockFilmsList>
