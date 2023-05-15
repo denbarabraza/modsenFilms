@@ -31,12 +31,12 @@ export const spin = keyframes`
   }
 `;
 
-export const Spinner = styled.div<{ color: string; size: number }>`
+export const Spinner = styled.div`
   display: inline-block;
   width: 10%;
   height: 10%;
-  border: ${props => props.size * 0.1}px solid rgb(241, 121, 0);
-  border-top-color: ${props => props.color};
+  border: 2px solid rgb(241, 121, 0);
+  border-top-color: rgb(204, 204, 204);
   border-radius: 50%;
   animation: ${spin} 1s ease-in-out infinite;
 `;
