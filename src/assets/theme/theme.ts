@@ -17,6 +17,7 @@ const baseTheme: ITheme = {
     toggleBackgroundChecked: '#fff',
     toggleCircle: '#F17900',
     toggleBorder: '#F17900',
+    hoverBoxShadow: '#F17900',
   },
   mediaQueries: {
     mobile: '@media (max-width: 767px)',
@@ -37,7 +38,7 @@ export const darkTheme: DefaultTheme = {
     fontColor: '#ffffff',
     mainBackground: '#3f3f3f',
     mainBorder: '#ffffff',
-    boxShadow: '#E5E4E8',
+    boxShadow: '#191919',
     selectBackground: '#E5E4E8',
     headerFooterBackground: '#191919',
     toggleBackground: '#F17900',
@@ -45,6 +46,7 @@ export const darkTheme: DefaultTheme = {
     toggleBackgroundChecked: '#F17900',
     toggleCircle: '#fff',
     toggleBorder: '#F17900',
+    hoverBoxShadow: '#E5E4E8',
   },
   mediaQueries: {
     mobile: '@media (max-width: 767px)',

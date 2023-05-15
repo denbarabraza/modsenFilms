@@ -12,6 +12,7 @@ export interface ITheme {
     toggleBackgroundChecked: string;
     toggleCircle: string;
     toggleBorder: string;
+    hoverBoxShadow: string;
   };
   mediaQueries: {
     mobile: string;

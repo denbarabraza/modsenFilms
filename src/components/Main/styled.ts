@@ -21,9 +21,17 @@ export const BlockCategory = styled.div`
   align-items: center;
   flex-wrap: wrap;
   height: 5vh;
-  @media (max-width: 467px) {
+  @media (max-width: 1030px) {
     height: 9vh;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 550px) {
+    height: 11vh;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 367px) {
+    height: 15vh;
+    padding-bottom: 10px;
   }
 `;
 export const BlockShowMore = styled.div`
@@ -54,6 +62,10 @@ export const FilmsCard = styled.div`
 
   display: grid;
   grid-template-rows: 1.5fr 0.25fr 1fr;
+
+  &:hover {
+    box-shadow: 0 2px 3px 2px ${props => props.theme.colors.hoverBoxShadow};
+  }
 `;
 
 export const FilmsPoster = styled.img`
