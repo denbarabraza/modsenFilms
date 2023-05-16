@@ -12,7 +12,7 @@ export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const BlockCategory = styled.div`
+export const GenreItem = styled.div`
   display: flex;
   padding: 7px 0;
   border-bottom: 1px solid ${props => props.theme.colors.mainBorder};
