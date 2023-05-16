@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import { CBlockCategory } from 'src/components/Main/Category';
-import { CBlockFilmsList } from 'src/components/Main/FilmsList';
+import { BlockFilms } from 'src/components/Main/BlockFilms';
+import { BlockGenre } from 'src/components/Main/BlockGenre';
 
 import { Button } from '@/components/Button';
 import {
@@ -15,8 +15,8 @@ export const Main = memo(() => {
     <Container>
       <Wrapper>
         <InnerWrapper>
-          <CBlockCategory />
-          <CBlockFilmsList />
+          <BlockGenre />
+          <BlockFilms />
           <BlockShowMore>
             <Button title='Show More' type='other' />
           </BlockShowMore>

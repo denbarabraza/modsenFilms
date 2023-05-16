@@ -15,14 +15,14 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { getTitleSelector } from '@/selectors/filmsSelectors';
-import { setCategory, setSearch } from '@/store/slice/filmsSlice';
+import { setGenre, setTitle } from '@/store/slice/filmsSlice';
 
 export const Header = memo(() => {
   const dispatch = useAppDispatch();
   const inputValue = useAppSelector(getTitleSelector);
   const searchByTitle = (value: string) => {
-    dispatch(setCategory('all'));
-    dispatch(setSearch(value));
+    dispatch(setGenre(null));
+    dispatch(setTitle(value));
   };
 
   return (

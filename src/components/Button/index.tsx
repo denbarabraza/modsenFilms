@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo } from 'react';
 
 import search from '@/assets/image/search.png';
 import { IButton } from '@/components/Button/interface';
@@ -26,7 +26,7 @@ export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
     case 'categories':
       item = (
         <ButtonItemCategories
-          active={title.toLowerCase() === genre.toLowerCase()}
+          active={title.toLowerCase() === genre?.toLowerCase()}
           onClick={callBack}
           type='button'
         >

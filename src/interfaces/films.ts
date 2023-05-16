@@ -3,7 +3,7 @@ export interface IFilms {
   results: IFilmsResults[];
 }
 
-interface IFilmsResults {
+export interface IFilmsResults {
   genre: string[];
   imageurl: Record<number, string>;
   imdbid: string;

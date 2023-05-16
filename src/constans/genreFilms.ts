@@ -1,12 +1,8 @@
-interface IAboutUsData {
-  id: number;
-  value: string;
-}
-
-export const categoriesFilms: IAboutUsData[] = [
+export const genreFilms: GenreData[] = [
   {
     id: 1,
-    value: 'All',
+    value: undefined,
+    label: 'All',
   },
   { id: 2, value: 'Action' },
   { id: 3, value: 'Drama' },
@@ -23,3 +19,17 @@ export const categoriesFilms: IAboutUsData[] = [
   { id: 14, value: 'Talk-Show' },
   { id: 15, value: 'News' },
 ];
+
+type GenreData = {
+  id: number;
+} & GenreDataConditional;
+
+type GenreDataConditional =
+  | {
+      value: undefined;
+      label: string;
+    }
+  | {
+      value: string;
+      label?: never;
+    };
