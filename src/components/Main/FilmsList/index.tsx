@@ -43,6 +43,10 @@ export const CBlockFilmsList = memo(() => {
     return <div>Oops! Something went wrong.</div>;
   } */
 
+  /* if (allFilmsLoading || filmsByGenreLoading || filmsByTitleLoading) {
+    return <Loader />;
+  } */
+
   return (
     <BlockFilmsList>
       {films.results.map(film => {
