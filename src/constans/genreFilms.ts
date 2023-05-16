@@ -1,3 +1,6 @@
+/*
+ In order not to send a request when clicking on 'All', I assigned it the value "undefined" while using types for correct typing
+ */
 export const genreFilms: GenreData[] = [
   {
     id: 1,
