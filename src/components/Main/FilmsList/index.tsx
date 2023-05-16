@@ -22,13 +22,13 @@ export const CBlockFilmsList = memo(() => {
   const films = useAppSelector(getFilmsSelector);
   const title = useAppSelector(getTitleSelector);
 
-  /*  const {
-     data,
-     isLoading: allFilmsLoading,
-     error: allFilmsError,
-   } = filmsAPI.useFetchAllFilmsQuery('', {
-     skip: genre !== 'all',
-   }); */
+  const {
+    data,
+    isLoading: allFilmsLoading,
+    error: allFilmsError,
+  } = filmsAPI.useFetchAllFilmsQuery('', {
+    skip: genre !== 'all',
+  });
   /*  const {
      data,
      isLoading: filmsByGenreLoading,

@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import * as process from 'process';
 
 import { IFilms } from '@/interfaces/films';
 import { setFilmsData } from '@/store/slice/filmsSlice';
@@ -13,7 +12,7 @@ export const filmsAPI = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://ott-details.p.rapidapi.com',
     headers: {
-      'X-RapidAPI-Key': `${API_KEY}`,
+      'X-RapidAPI-Key': API_KEY,
       'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
     },
   }),
