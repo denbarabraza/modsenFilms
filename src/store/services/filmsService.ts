@@ -18,14 +18,14 @@ export const filmsAPI = createApi({
   endpoints: builder => ({
     fetchFilms: builder.query<IFilms, { genre: string | undefined | null }>({
       query: ({ genre }) => ({
-        url: '/advancedsearch',
+        url: '/advanceddfdsfsearch',
         params: { genre },
       }),
       providesTags: ['Films'],
     }),
     fetchByTitleFilms: builder.query<IFilms, string | null>({
       query: (title: string) => ({
-        url: '/search',
+        url: '/sedfdsfarch',
         params: { title },
       }),
       providesTags: ['Films'],

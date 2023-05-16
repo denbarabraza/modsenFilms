@@ -88,3 +88,10 @@ export const Description = styled.p`
   justify-content: flex-start;
   font-size: 1rem;
 `;
+
+export const InfoItem = styled.div`
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+`;

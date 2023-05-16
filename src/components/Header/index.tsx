@@ -19,6 +19,7 @@ import { setGenre, setTitle } from '@/store/slice/filmsSlice';
 
 export const Header = memo(() => {
   const dispatch = useAppDispatch();
+
   const inputValue = useAppSelector(getTitleSelector);
   const searchByTitle = (value: string) => {
     dispatch(setGenre(null));

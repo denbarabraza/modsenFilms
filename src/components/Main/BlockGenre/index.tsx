@@ -4,7 +4,7 @@ import { Button } from '@/components/Button';
 import { GenreItem } from '@/components/Main/styled';
 import { genreFilms } from '@/constans/genreFilms';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { setGenre, setTitle } from '@/store/slice/filmsSlice';
+import { setGenre } from '@/store/slice/filmsSlice';
 
 export const BlockGenre = memo(() => {
   const dispatch = useAppDispatch();
