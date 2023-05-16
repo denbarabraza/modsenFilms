@@ -15,12 +15,13 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { getTitleSelector } from '@/selectors/filmsSelectors';
-import { setSearch } from '@/store/slice/filmsSlice';
+import { setCategory, setSearch } from '@/store/slice/filmsSlice';
 
 export const Header = memo(() => {
   const dispatch = useAppDispatch();
   const inputValue = useAppSelector(getTitleSelector);
-  const searchByName = (value: string) => {
+  const searchByTitle = (value: string) => {
+    dispatch(setCategory('all'));
     dispatch(setSearch(value));
   };
 
@@ -32,7 +33,7 @@ export const Header = memo(() => {
             <BlockImageApp alt='youtube' src={youtube} />
             <BlockNameApp>ModsenFilms</BlockNameApp>
           </BlockLogoApp>
-          <Search initialValue={inputValue} onChange={searchByName} />
+          <Search initialValue={inputValue} onChange={searchByTitle} />
           <ThemeToggle />
           <Menu />
         </InnerWrapper>

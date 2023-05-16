@@ -1,6 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import * as process from 'process';
 
 import { IFilms } from '@/interfaces/films';
+import { setFilmsData } from '@/store/slice/filmsSlice';
+
+const API_KEY = process.env.X_RAPIDAPI_KEY;
 
 export const filmsAPI = createApi({
   reducerPath: 'moviesAPI',
@@ -9,7 +13,7 @@ export const filmsAPI = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://ott-details.p.rapidapi.com',
     headers: {
-      'X-RapidAPI-Key': 'a75de0e461msh8c1a342d760e8a7p105048jsnea0efb3f9393',
+      'X-RapidAPI-Key': `${API_KEY}`,
       'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
     },
   }),
@@ -18,6 +22,15 @@ export const filmsAPI = createApi({
       query: () => ({
         url: '/advancedsearch',
       }),
+      async onQueryStarted(id, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          dispatch(setFilmsData(data));
+        } catch (err) {
+          console.log(err);
+        }
+      },
       providesTags: ['Films'],
     }),
     fetchByGenreFilms: builder.query<IFilms, string>({
@@ -25,6 +38,15 @@ export const filmsAPI = createApi({
         url: '/advancedsearch',
         params: { genre },
       }),
+      async onQueryStarted(id, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          dispatch(setFilmsData(data));
+        } catch (err) {
+          console.log(err);
+        }
+      },
       providesTags: ['Films'],
     }),
     fetchByTitleFilms: builder.query<IFilms, string>({
@@ -32,6 +54,15 @@ export const filmsAPI = createApi({
         url: '/search',
         params: { title },
       }),
+      async onQueryStarted(id, { dispatch, queryFulfilled, getCacheEntry }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          dispatch(setFilmsData(data));
+        } catch (err) {
+          console.log(err);
+        }
+      },
       providesTags: ['Films'],
     }),
   }),

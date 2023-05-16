@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IFilms } from '@/interfaces/films';
-import { filmsAPI } from '@/store/services/filmsService';
+import { filmsAPI, useFetchByGenreFilmsQuery } from '@/store/services/filmsService';
 
 interface IInitialState {
   data: IFilms;
@@ -28,28 +28,11 @@ export const filmsSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-  },
-  extraReducers: builder => {
-    builder.addMatcher(
-      filmsAPI.endpoints.fetchAllFilms.matchFulfilled,
-      (state, action) => {
-        state.data = action.payload;
-      },
-    );
-    builder.addMatcher(
-      filmsAPI.endpoints.fetchByGenreFilms.matchFulfilled,
-      (state, action) => {
-        state.data = action.payload;
-      },
-    );
-    builder.addMatcher(
-      filmsAPI.endpoints.fetchByTitleFilms.matchFulfilled,
-      (state, action) => {
-        state.data = action.payload;
-      },
-    );
+    setFilmsData: (state, action: PayloadAction<IFilms>) => {
+      state.data = action.payload;
+    },
   },
 });
 
-export const { setCategory, setSearch } = filmsSlice.actions;
+export const { setCategory, setSearch, setFilmsData } = filmsSlice.actions;
 export const filmsReducer = filmsSlice.reducer;

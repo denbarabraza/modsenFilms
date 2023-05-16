@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Loader } from 'src/components/Loader';
 
 import nopicture from '@/assets/image/nopicture.png';
@@ -22,15 +22,21 @@ export const CBlockFilmsList = memo(() => {
   const films = useAppSelector(getFilmsSelector);
   const title = useAppSelector(getTitleSelector);
 
-  /* const { isLoading: allFilmsLoading, error: allFilmsError } =
-    filmsAPI.useFetchAllFilmsQuery('', {
-      skip: genre !== 'all',
-    });
-  const { isLoading: filmsByGenreLoading, error: filmsByGenreError } =
-    filmsAPI.useFetchByGenreFilmsQuery(genre, {
-      skip: genre === 'all',
-    });
-  const { isLoading: filmsByTitleLoading, error: filmsByTitleError } =
+  /*  const {
+     data,
+     isLoading: allFilmsLoading,
+     error: allFilmsError,
+   } = filmsAPI.useFetchAllFilmsQuery('', {
+     skip: genre !== 'all',
+   }); */
+  /*  const {
+     data,
+     isLoading: filmsByGenreLoading,
+     error: filmsByGenreError,
+   } = filmsAPI.useFetchByGenreFilmsQuery(genre, {
+     skip: genre === 'all',
+   }); */
+  /* const { isLoading: filmsByTitleLoading, error: filmsByTitleError } =
     filmsAPI.useFetchByTitleFilmsQuery(title, {
       skip: title === '',
     });
@@ -41,53 +47,54 @@ export const CBlockFilmsList = memo(() => {
 
   if (allFilmsError || filmsByGenreError || filmsByTitleError) {
     return <div>Oops! Something went wrong.</div>;
-  } */
+  }
 
-  /* if (allFilmsLoading || filmsByGenreLoading || filmsByTitleLoading) {
+  if (allFilmsLoading || filmsByGenreLoading || filmsByTitleLoading) {
     return <Loader />;
   } */
 
   return (
     <BlockFilmsList>
-      {films.results.map(film => {
-        return (
-          <FilmsCard key={film.imdbid}>
-            <FilmsPoster
-              src={film.imageurl ? film.imageurl[0] : nopicture}
-              alt={film.title}
-            />
-            <Title>{film.title}</Title>
-            <Description>
-              <div>
-                <b>Genre: </b>
-                {film.genre.length > 1
-                  ? film.genre.map((genre, index) =>
-                      index === film.genre.length - 1 ? genre : `${genre}, `,
-                    )
-                  : film.genre.map(genre => genre)}
-              </div>
-              {film.released && (
+      {films &&
+        films.results.map(film => {
+          return (
+            <FilmsCard key={film.imdbid}>
+              <FilmsPoster
+                src={film.imageurl ? film.imageurl[0] : nopicture}
+                alt={film.title}
+              />
+              <Title>{film.title}</Title>
+              <Description>
                 <div>
-                  <b>Released: </b>
-                  {film.released}
+                  <b>Genre: </b>
+                  {film.genre.length > 1
+                    ? film.genre.map((genre, index) =>
+                        index === film.genre.length - 1 ? genre : `${genre}, `,
+                      )
+                    : film.genre.map(genre => genre)}
                 </div>
-              )}
-              {film.imdbrating && (
-                <div>
-                  <b>IMDb: </b>
-                  {film.imdbrating}
-                </div>
-              )}
-              {film.synopsis && (
-                <div>
-                  <b>Synopsis: </b>
-                  {film.synopsis}
-                </div>
-              )}
-            </Description>
-          </FilmsCard>
-        );
-      })}
+                {film.released && (
+                  <div>
+                    <b>Released: </b>
+                    {film.released}
+                  </div>
+                )}
+                {film.imdbrating && (
+                  <div>
+                    <b>IMDb: </b>
+                    {film.imdbrating}
+                  </div>
+                )}
+                {film.synopsis && (
+                  <div>
+                    <b>Synopsis: </b>
+                    {film.synopsis}
+                  </div>
+                )}
+              </Description>
+            </FilmsCard>
+          );
+        })}
     </BlockFilmsList>
   );
 });
