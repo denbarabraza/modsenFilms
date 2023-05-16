@@ -16,7 +16,7 @@ export const filmsAPI = createApi({
     },
   }),
   endpoints: builder => ({
-    fetchAllFilms: builder.query<IFilms, { genre: string | undefined | null }>({
+    fetchFilms: builder.query<IFilms, { genre: string | undefined | null }>({
       query: ({ genre }) => ({
         url: '/advancedsearch',
         params: { genre },
@@ -33,4 +33,4 @@ export const filmsAPI = createApi({
   }),
 });
 
-export const { useFetchAllFilmsQuery, useFetchByTitleFilmsQuery } = filmsAPI;
+export const { useFetchFilmsQuery, useFetchByTitleFilmsQuery } = filmsAPI;
