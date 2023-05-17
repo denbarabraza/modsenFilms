@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Container = styled.div`
   min-height: 80vh;
@@ -53,12 +53,25 @@ export const BlockFilmsList = styled.div`
     align-items: center;
   }
 `;
+
+const slideInFromBottom = keyframes`
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
 export const FilmsCard = styled.div`
   background-color: ${props => props.theme.colors.filmsCardBackground};
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 3px 2px ${props => props.theme.colors.boxShadow};
+  animation: ${slideInFromBottom} 0.5s ease-out;
 
   display: grid;
   grid-template-rows: 1.5fr 0.25fr 1fr;
