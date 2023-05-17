@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { BlockFilms } from 'src/components/Main/BlockFilms';
-import { BlockGenre } from 'src/components/Main/BlockGenre';
 
 import { Button } from '@/components/Button';
+import { BlockFilms } from '@/components/Main/BlockFilms';
+import { BlockGenre } from '@/components/Main/BlockGenre';
 import {
   BlockShowMore,
   Container,

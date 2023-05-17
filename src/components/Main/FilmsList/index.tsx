@@ -1,6 +1,7 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useState } from 'react';
 
 import nopicture from '@/assets/image/nopicture.png';
+import { FilmModal } from '@/components/FilmModal';
 import { IFilmsList } from '@/components/Main/FilmsList/interface';
 import {
   BlockFilmsList,
@@ -11,11 +12,21 @@ import {
 } from '@/components/Main/styled';
 
 export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
+  const [selectedFilmId, setSelectedFilmId] = useState<string | null>(null);
+
+  const handleMovieClick = (movieId: string) => {
+    setSelectedFilmId(movieId);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedFilmId(null);
+  };
+
   return (
     <BlockFilmsList>
       {films?.map(film => {
         return (
-          <FilmsCard key={film.imdbid}>
+          <FilmsCard key={film.imdbid} onClick={() => handleMovieClick(film.imdbid)}>
             <FilmsPoster
               src={film.imageurl ? film.imageurl[0] : nopicture}
               alt={film.title}
@@ -52,6 +63,9 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
           </FilmsCard>
         );
       })}
+      {selectedFilmId && (
+        <FilmModal filmId={selectedFilmId} isOpen onClose={handleCloseModal} />
+      )}
     </BlockFilmsList>
   );
 });

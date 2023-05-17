@@ -9,7 +9,7 @@ export const filmsAPI = createApi({
   tagTypes: ['Films'],
   keepUnusedDataFor: 86400,
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://ott-details.p.rapidapi.com',
+    baseUrl: 'https://ott-details.p.rapidapi.com/',
     headers: {
       'X-RapidAPI-Key': API_KEY,
       'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
@@ -18,14 +18,14 @@ export const filmsAPI = createApi({
   endpoints: builder => ({
     fetchFilms: builder.query<IFilms, { genre: string | undefined | null }>({
       query: ({ genre }) => ({
-        url: '/advanceddfdsfsearch',
+        url: 'advancedsearch',
         params: { genre },
       }),
       providesTags: ['Films'],
     }),
     fetchByTitleFilms: builder.query<IFilms, string | null>({
       query: (title: string) => ({
-        url: '/sedfdsfarch',
+        url: 'search',
         params: { title },
       }),
       providesTags: ['Films'],
