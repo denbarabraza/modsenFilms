@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, memo, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, KeyboardEvent, memo, useEffect, useState } from 'react';
 
 import del from '@/assets/image/close.png';
 import { Button } from '@/components/Button';
@@ -13,12 +13,20 @@ import {
 export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
   const [value, setValue] = useState<string>(initialValue);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onClickChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
-  const handleClick = () => {
-    onChange(value);
+
+  const onKeyUpClick = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleClick();
+    }
   };
+
+  const handleClick = () => {
+    onChange(value.trim());
+  };
+
   const onClickDelHandler = () => {
     setValue('');
   };
@@ -35,7 +43,8 @@ export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
           type='text'
           placeholder='Search by name'
           value={value}
-          onChange={handleChange}
+          onChange={onClickChange}
+          onKeyUp={onKeyUpClick}
         />
         <DelIcon src={del} alt='del icon' onClick={onClickDelHandler} />
       </InputContainer>
