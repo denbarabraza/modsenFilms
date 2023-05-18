@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
 import { IModalProps } from '@/components/FilmModal/interface';
+import { Description, Title } from '@/components/FilmModal/styled';
 import { Loader } from '@/components/Loader';
-import { Description, Title } from '@/components/Main/styled';
 import { Modal } from '@/components/Modal';
 import { YoutubePlayer } from '@/components/YoutubePlayer';
 import { useFetchSelectedFilmQuery } from '@/store/services/filmsService';

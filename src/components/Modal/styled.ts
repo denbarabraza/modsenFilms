@@ -18,6 +18,10 @@ export const ModalItem = styled.div<{ isOpen: boolean }>`
 `;
 
 export const ModalContent = styled.div<{ isOpen: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 50vw;
   height: auto;
   padding: 20px;
@@ -27,4 +31,8 @@ export const ModalContent = styled.div<{ isOpen: boolean }>`
   transition: 0.4s all;
 
   transform: ${({ isOpen }) => (isOpen ? '' : 'scale(1)')};
+  @media (max-width: 574px) {
+    width: 80vw;
+    height: 80vh;
+  }
 `;

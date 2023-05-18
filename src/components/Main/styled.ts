@@ -29,7 +29,7 @@ export const GenreItem = styled.div`
     height: 11vh;
     padding-bottom: 10px;
   }
-  @media (max-width: 367px) {
+  @media (max-width: 400px) {
     height: 15vh;
     padding-bottom: 10px;
   }

@@ -6,10 +6,7 @@ import { Container, Video } from '@/components/YoutubePlayer/styled';
 export const YoutubePlayer: React.FC<IYoutubePlayer> = ({ videoId }) => {
   return (
     <Container>
-      <Video
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-        allowFullScreen
-      />
+      <Video src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} />
     </Container>
   );
 };
