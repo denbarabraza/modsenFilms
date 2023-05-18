@@ -9,6 +9,7 @@ import { IInitialState } from '@/store/slice/interface';
 const initialState: IInitialState = {
   genre: undefined,
   title: '',
+  filmLimit: 16,
 };
 
 export const filmsSlice = createSlice({
@@ -21,8 +22,11 @@ export const filmsSlice = createSlice({
     setTitle: (state, action: PayloadAction<string>) => {
       state.title = action.payload;
     },
+    setFilmLimit: (state, action: PayloadAction<number>) => {
+      state.filmLimit = action.payload;
+    },
   },
 });
 
-export const { setGenre, setTitle } = filmsSlice.actions;
+export const { setGenre, setTitle, setFilmLimit } = filmsSlice.actions;
 export const filmsReducer = filmsSlice.reducer;

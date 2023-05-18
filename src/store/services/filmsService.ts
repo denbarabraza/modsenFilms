@@ -20,7 +20,7 @@ export const filmsAPI = createApi({
     fetchFilms: builder.query<IFilms, { genre: string | undefined | null }>({
       query: ({ genre }) => ({
         url: 'advancedsearch',
-        params: { genre },
+        params: { genre, end_year: '2017' },
       }),
       providesTags: ['Films'],
     }),

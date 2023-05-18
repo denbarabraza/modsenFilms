@@ -9,8 +9,19 @@ import {
   InnerWrapper,
   Wrapper,
 } from '@/components/Main/styled';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { getFilmLimitSelector } from '@/selectors/filmsSelectors';
+import { setFilmLimit } from '@/store/slice/filmsSlice';
 
 export const Main = memo(() => {
+  const filmLimit = useAppSelector(getFilmLimitSelector);
+  const dispatch = useAppDispatch();
+
+  const onClickChangeLimit = () => {
+    dispatch(setFilmLimit(filmLimit + 16));
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -18,7 +29,7 @@ export const Main = memo(() => {
           <BlockGenre />
           <BlockFilms />
           <BlockShowMore>
-            <Button title='Show More' type='other' />
+            <Button title='Show More' type='other' callBack={onClickChangeLimit} />
           </BlockShowMore>
         </InnerWrapper>
       </Wrapper>

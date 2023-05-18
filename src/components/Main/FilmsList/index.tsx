@@ -10,9 +10,13 @@ import {
   FilmsPoster,
   Title,
 } from '@/components/Main/styled';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { getFilmLimitSelector } from '@/selectors/filmsSelectors';
 import { getGenreFilm } from '@/utils/getGenreFilm';
 
 export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
+  const filmLimit = useAppSelector(getFilmLimitSelector);
+
   const [selectedFilmId, setSelectedFilmId] = useState<string | null>(null);
 
   const handleMovieClick = (movieId: string) => {
@@ -27,43 +31,45 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
 
   return (
     <BlockFilmsList>
-      {films?.map(film => {
-        const genreFilm = getGenreFilm(film);
+      {films
+        ?.filter((film, index) => index < filmLimit)
+        .map(film => {
+          const genreFilm = getGenreFilm(film);
 
-        return (
-          <FilmsCard key={film.imdbid} onClick={() => handleMovieClick(film.imdbid)}>
-            <FilmsPoster
-              src={film.imageurl ? film.imageurl[0] : nopicture}
-              alt={film.title}
-            />
-            <Title>{film.title}</Title>
-            <Description>
-              <div>
-                <b>Genre: </b>
-                {genreFilm}
-              </div>
-              {film.released && (
+          return (
+            <FilmsCard key={film.imdbid} onClick={() => handleMovieClick(film.imdbid)}>
+              <FilmsPoster
+                src={film.imageurl ? film.imageurl[0] : nopicture}
+                alt={film.title}
+              />
+              <Title>{film.title}</Title>
+              <Description>
                 <div>
-                  <b>Released: </b>
-                  {film.released}
+                  <b>Genre: </b>
+                  {genreFilm}
                 </div>
-              )}
-              {film.imdbrating && (
-                <div>
-                  <b>IMDb: </b>
-                  {film.imdbrating}
-                </div>
-              )}
-              {film.synopsis && (
-                <div>
-                  <b>Synopsis: </b>
-                  {film.synopsis}
-                </div>
-              )}
-            </Description>
-          </FilmsCard>
-        );
-      })}
+                {film.released && (
+                  <div>
+                    <b>Released: </b>
+                    {film.released}
+                  </div>
+                )}
+                {film.imdbrating && (
+                  <div>
+                    <b>IMDb: </b>
+                    {film.imdbrating}
+                  </div>
+                )}
+                {film.synopsis && (
+                  <div>
+                    <b>Synopsis: </b>
+                    {film.synopsis}
+                  </div>
+                )}
+              </Description>
+            </FilmsCard>
+          );
+        })}
       {selectedFilmId && (
         <FilmModal
           film={selectedFilm}
