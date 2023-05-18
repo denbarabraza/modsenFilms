@@ -11,7 +11,7 @@ export const ModalItem = styled.div<{ isOpen: boolean }>`
   align-items: center;
   justify-content: center;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   transition: 0.4s;
 
   transform: ${({ isOpen }) => (isOpen ? '' : 'scale(0.5)')};
@@ -21,8 +21,7 @@ export const ModalContent = styled.div<{ isOpen: boolean }>`
   width: 50vw;
   height: auto;
   padding: 20px;
-
-  background-color: white;
+  background-color: ${props => props.theme.colors.modalBackground};
   border-radius: 12px;
 
   transition: 0.4s all;

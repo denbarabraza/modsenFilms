@@ -7,6 +7,7 @@ export interface ITheme {
     selectBackground: string;
     selectFontColor: string;
     headerFooterBackground: string;
+    modalBackground: string;
     toggleBackground: string;
     filmsCardBackground: string;
     toggleBackgroundChecked: string;
