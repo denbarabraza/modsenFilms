@@ -10,6 +10,7 @@ import {
   FilmsPoster,
   Title,
 } from '@/components/Main/styled';
+import { getGenreFilm } from '@/utils/getGenreFilm';
 
 export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
   const [selectedFilmId, setSelectedFilmId] = useState<string | null>(null);
@@ -22,9 +23,13 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
     setSelectedFilmId(null);
   };
 
+  const selectedFilm = films?.find(e => e.imdbid === selectedFilmId);
+
   return (
     <BlockFilmsList>
       {films?.map(film => {
+        const genreFilm = getGenreFilm(film);
+
         return (
           <FilmsCard key={film.imdbid} onClick={() => handleMovieClick(film.imdbid)}>
             <FilmsPoster
@@ -35,11 +40,7 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
             <Description>
               <div>
                 <b>Genre: </b>
-                {film.genre.length > 1
-                  ? film.genre.map((genre, index) =>
-                      index === film.genre.length - 1 ? genre : `${genre}, `,
-                    )
-                  : film.genre.map(genre => genre)}
+                {genreFilm}
               </div>
               {film.released && (
                 <div>
@@ -64,7 +65,12 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
         );
       })}
       {selectedFilmId && (
-        <FilmModal filmId={selectedFilmId} isOpen onClose={handleCloseModal} />
+        <FilmModal
+          film={selectedFilm}
+          filmId={selectedFilmId}
+          isOpen
+          onClose={handleCloseModal}
+        />
       )}
     </BlockFilmsList>
   );

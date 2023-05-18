@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IFilms } from '@/interfaces/films';
+import { IFilms, ISelectedFilm } from '@/interfaces/films';
 
 const API_KEY_RAPID = process.env.X_RAPIDAPI_KEY;
 const API_KEY_TMDB = process.env.X_TMDBAPI_KEY;
@@ -42,7 +42,7 @@ export const selectedFilmAPI = createApi({
     baseUrl: 'https://api.themoviedb.org/3/movie',
   }),
   endpoints: builder => ({
-    fetchSelectedFilm: builder.query<IFilms, string>({
+    fetchSelectedFilm: builder.query<ISelectedFilm, string>({
       query: filmID => ({
         url: `${filmID}`,
         params: {
