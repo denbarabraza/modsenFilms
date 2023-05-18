@@ -9,12 +9,16 @@ import {
 } from '@/components/ThemeToggle/styled';
 import { ThemeEnum } from '@/constans/themes';
 import { useTheme } from '@/hooks/useTheme';
+import { setThemeToLocalStorage } from '@/utils/localStorage/setTheme';
 
 export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
   const { theme, setTheme } = useTheme();
 
   const handleToggleChange = useCallback(() => {
-    setTheme(theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light);
+    const rulesTheme = theme === ThemeEnum.light ? ThemeEnum.dark : ThemeEnum.light;
+
+    setThemeToLocalStorage('storedTheme', rulesTheme);
+    setTheme(rulesTheme);
   }, [theme]);
 
   return (
