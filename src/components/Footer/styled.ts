@@ -18,7 +18,7 @@ export const InnerWrapper = styled.div`
   justify-content: space-between;
   height: 100%;
 `;
-export const BlockSocial = styled.div`
+export const BlockSocialItem = styled.div`
   display: flex;
   gap: 30px;
 `;
@@ -43,7 +43,7 @@ export const BlockAboutUs = styled.div`
     gap: 20px;
   }
 `;
-export const BlockInfo = styled.div`
+export const BlockAboutUsInfo = styled.div`
   display: flex;
   flex-direction: row;
   gap: 32px;

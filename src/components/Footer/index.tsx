@@ -1,10 +1,10 @@
 import React from 'react';
-import { CBlockInfoItem } from 'src/components/Footer/Info';
-import { CBlockSocial } from 'src/components/Footer/Social';
+import { BlockInfo } from 'src/components/Footer/BlockInfo';
+import { BlockSocial } from 'src/components/Footer/BlockSocial';
 
 import {
   BlockAboutUs,
-  BlockInfo,
+  BlockAboutUsInfo,
   BlockRightsInfo,
   Container,
   InnerWrapper,
@@ -17,11 +17,11 @@ export const Footer = () => {
       <Wrapper>
         <InnerWrapper>
           <BlockAboutUs>
-            <BlockInfo>
-              <CBlockInfoItem rules={1} />
-              <CBlockInfoItem rules={0} />
-            </BlockInfo>
-            <CBlockSocial />
+            <BlockAboutUsInfo>
+              <BlockInfo rules={1} />
+              <BlockInfo rules={0} />
+            </BlockAboutUsInfo>
+            <BlockSocial />
           </BlockAboutUs>
           <BlockRightsInfo>
             © Copyright 2023 Modsen. All rights reserved | Privacy policy
