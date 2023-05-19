@@ -9,7 +9,7 @@ import {
   SearchIMG,
 } from '@/components/Button/styled';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getGenreSelector } from '@/selectors/filmsSelectors';
+import { getGenreSelector } from '@/store/selectors/filmsSelectors';
 
 export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
   const genre = useAppSelector(getGenreSelector);

@@ -11,7 +11,7 @@ import {
   Title,
 } from '@/components/Main/styled';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getFilmLimitSelector } from '@/selectors/filmsSelectors';
+import { getFilmLimitSelector } from '@/store/selectors/filmsSelectors';
 import { getGenreFilm } from '@/utils/getGenreFilm';
 
 export const FilmsList: FC<IFilmsList> = memo(({ films }) => {

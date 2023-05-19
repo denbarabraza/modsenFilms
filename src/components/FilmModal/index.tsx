@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { IModalProps } from '@/components/FilmModal/interface';
-import { Description, Title } from '@/components/FilmModal/styled';
+import { Description, DescriptionBlock, Title } from '@/components/FilmModal/styled';
 import { Loader } from '@/components/Loader';
 import { Modal } from '@/components/Modal';
 import { YoutubePlayer } from '@/components/YoutubePlayer';
@@ -24,7 +24,7 @@ export const FilmModal: React.FC<IModalProps> = memo(
       <Modal isOpen={isOpen} onClose={onClose}>
         <YoutubePlayer videoId={keyYouTube || 'xpmsk94638k'} />
         {film && (
-          <div>
+          <DescriptionBlock>
             <Title>{film.title}</Title>
             <Description>
               <div>
@@ -50,7 +50,7 @@ export const FilmModal: React.FC<IModalProps> = memo(
                 </div>
               )}
             </Description>
-          </div>
+          </DescriptionBlock>
         )}
       </Modal>
     );

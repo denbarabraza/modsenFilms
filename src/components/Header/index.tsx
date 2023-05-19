@@ -14,7 +14,7 @@ import { Search } from '@/components/Search';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getTitleSelector } from '@/selectors/filmsSelectors';
+import { getTitleSelector } from '@/store/selectors/filmsSelectors';
 import { setGenre, setTitle } from '@/store/slice/filmsSlice';
 
 export const Header = memo(() => {

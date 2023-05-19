@@ -11,7 +11,7 @@ import {
 } from '@/components/Main/styled';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getFilmLimitSelector } from '@/selectors/filmsSelectors';
+import { getFilmLimitSelector } from '@/store/selectors/filmsSelectors';
 import { setFilmLimit } from '@/store/slice/filmsSlice';
 
 export const Main = memo(() => {

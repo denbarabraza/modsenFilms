@@ -4,7 +4,7 @@ import { Loader } from '@/components/Loader';
 import { FilmsList } from '@/components/Main/FilmsList';
 import { InfoItem } from '@/components/Main/styled';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getGenreSelector, getTitleSelector } from '@/selectors/filmsSelectors';
+import { getGenreSelector, getTitleSelector } from '@/store/selectors/filmsSelectors';
 import {
   useFetchByTitleFilmsQuery,
   useFetchFilmsQuery,
