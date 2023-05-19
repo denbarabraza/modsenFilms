@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 
 import { Button } from '@/components/Button';
 import { BlockFilms } from '@/components/Main/BlockFilms';
@@ -18,9 +18,9 @@ export const Main = memo(() => {
   const filmLimit = useAppSelector(getFilmLimitSelector);
   const dispatch = useAppDispatch();
 
-  const onClickChangeLimit = () => {
+  const onClickChangeLimit = useCallback(() => {
     dispatch(setFilmLimit(filmLimit + 16));
-  };
+  }, []);
 
   return (
     <Container>

@@ -21,6 +21,7 @@ export const Header = memo(() => {
   const dispatch = useAppDispatch();
 
   const inputValue = useAppSelector(getTitleSelector);
+
   const searchByTitle = (value: string) => {
     dispatch(setGenre(null));
     dispatch(setTitle(value));
