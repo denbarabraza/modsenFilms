@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, KeyboardEvent, memo, useEffect, useState } from
 
 import del from '@/assets/image/close.png';
 import { Button } from '@/components/Button';
+import { HintsBlock } from '@/components/Search/HintsBlock';
 import { ISearch } from '@/components/Search/interface';
 import {
   Container,
@@ -9,30 +10,42 @@ import {
   InputContainer,
   InputItem,
 } from '@/components/Search/styled';
+import { useDebounce } from '@/hooks/useDebounce';
 
-export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
-  const [value, setValue] = useState<string>(initialValue);
+export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState<string>(initialValue);
+  const [isHintsOpen, setIsHintsOpen] = useState<boolean>(false);
 
-  const onClickChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+  const debouncedValue = useDebounce<string>(searchTerm, 800);
+
+  const handleClick = () => {
+    onSearch(searchTerm.trim());
+    setIsHintsOpen(false);
   };
 
-  const onKeyUpClick = (event: KeyboardEvent<HTMLInputElement>) => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+    if (event.target.value.length > 0) setIsHintsOpen(true);
+  };
+
+  const onKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleClick();
     }
   };
 
-  const handleClick = () => {
-    onChange(value.trim());
+  const onClickDel = () => {
+    setSearchTerm('');
+    setIsHintsOpen(false);
   };
 
-  const onClickDelHandler = () => {
-    setValue('');
+  const handleResultClick = (title: string) => {
+    onSearch(title);
+    setIsHintsOpen(false);
   };
 
   useEffect(() => {
-    setValue(initialValue);
+    setSearchTerm(initialValue);
   }, [initialValue]);
 
   return (
@@ -41,14 +54,17 @@ export const Search: FC<ISearch> = memo(({ initialValue, onChange }) => {
         <InputItem
           key={initialValue}
           type='text'
-          placeholder='Search by name'
-          value={value}
-          onChange={onClickChange}
-          onKeyUp={onKeyUpClick}
+          placeholder='Search by title'
+          value={searchTerm}
+          onChange={onChange}
+          onKeyUp={onKeyUp}
         />
-        <DelIcon src={del} alt='del icon' onClick={onClickDelHandler} />
+        <DelIcon src={del} alt='del icon' onClick={onClickDel} />
       </InputContainer>
-      <Button title='ser' callBack={handleClick} type='search' />
+      <Button title='searchButton' callBack={handleClick} type='search' />
+      {isHintsOpen && (
+        <HintsBlock searchTerm={debouncedValue} onClickSelectHint={handleResultClick} />
+      )}
     </Container>
   );
 });

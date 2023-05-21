@@ -35,7 +35,7 @@ export const Header = memo(() => {
             <BlockImageApp alt='youtube' src={youtube} />
             <BlockNameApp>ModsenFilms</BlockNameApp>
           </BlockLogoApp>
-          <Search initialValue={inputValue} onChange={searchByTitle} />
+          <Search initialValue={inputValue} onSearch={searchByTitle} />
           <ThemeToggle />
           <Menu />
         </InnerWrapper>

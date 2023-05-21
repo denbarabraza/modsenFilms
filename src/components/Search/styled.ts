@@ -5,6 +5,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  position: relative;
   @media (max-width: 602px) {
     width: 100%;
     grid-area: 2 / 1 / 3 / 3;
@@ -33,10 +34,12 @@ export const InputItem = styled.input`
   &:focus {
     border: 1px solid #212121;
   }
+
   @media (max-width: 768px) {
     width: 250px;
   }
 `;
+
 export const DelIcon = styled.img`
   width: 15px;
   height: 15px;
