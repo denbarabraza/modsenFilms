@@ -106,4 +106,5 @@ export const InfoItem = styled.div`
   font-size: 18px;
   width: 100%;
   text-align: center;
+  margin: 20px 0;
 `;

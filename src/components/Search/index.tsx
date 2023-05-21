@@ -16,7 +16,7 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState<string>(initialValue);
   const [isHintsOpen, setIsHintsOpen] = useState<boolean>(false);
 
-  const debouncedValue = useDebounce<string>(searchTerm, 800);
+  const debouncedValue = useDebounce<string>(searchTerm, 300);
 
   const handleClick = () => {
     onSearch(searchTerm.trim());
@@ -37,6 +37,7 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
   const onClickDel = () => {
     setSearchTerm('');
     setIsHintsOpen(false);
+    onSearch('');
   };
 
   const handleResultClick = (title: string) => {

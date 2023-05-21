@@ -22,6 +22,11 @@ export const HintsBlockContainer = styled.ul`
     background-color: #ccc;
     border-radius: 5px;
   }
+
+  @media (max-width: 602px) {
+    width: 70%;
+    margin-top: 10px;
+  }
 `;
 
 export const HintItem = styled.li`
