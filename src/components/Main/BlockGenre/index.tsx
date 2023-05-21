@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 
 import { Button } from '@/components/Button';
 import { GenreItem } from '@/components/Main/styled';
@@ -8,10 +8,13 @@ import { setGenre, setTitle } from '@/store/slice/filmsSlice';
 
 export const BlockGenre = memo(() => {
   const dispatch = useAppDispatch();
-  const onClickSetGenre = (genre?: string) => {
-    dispatch(setGenre(genre));
-    dispatch(setTitle(''));
-  };
+  const onClickSetGenre = useCallback(
+    (genre?: string) => {
+      dispatch(setGenre(genre));
+      dispatch(setTitle(''));
+    },
+    [dispatch],
+  );
 
   return (
     <GenreItem>

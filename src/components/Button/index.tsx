@@ -15,6 +15,10 @@ export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
   const genre = useAppSelector(getGenreSelector);
   let item;
 
+  const isButtonActive =
+    title.toLowerCase() === genre?.toLowerCase() ||
+    (title.toLowerCase() === 'all' && genre === undefined);
+
   switch (type) {
     case 'search':
       item = (
@@ -25,11 +29,7 @@ export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
       break;
     case 'categories':
       item = (
-        <ButtonItemCategories
-          active={title.toLowerCase() === genre?.toLowerCase()}
-          onClick={callBack}
-          type='button'
-        >
+        <ButtonItemCategories active={isButtonActive} onClick={callBack} type='button'>
           {title}
         </ButtonItemCategories>
       );
