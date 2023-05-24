@@ -26,6 +26,7 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
     if (event.target.value.length > 0) setIsHintsOpen(true);
+    else setIsHintsOpen(false);
   };
 
   const onKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -36,7 +37,6 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
 
   const onClickDel = () => {
     setSearchTerm('');
-    setIsHintsOpen(false);
     onSearch('');
   };
 

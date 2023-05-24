@@ -13,6 +13,7 @@ export const ModalItem = styled.div<{ isOpen: boolean }>`
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   background-color: rgba(0, 0, 0, 0.7);
   transition: 0.4s;
+  z-index: 3;
 
   transform: ${({ isOpen }) => (isOpen ? '' : 'scale(0.5)')};
 `;

@@ -8,6 +8,7 @@ export const Container = styled.div`
   height: 60px;
   position: sticky;
   top: 0;
+  z-index: 2;
   background-color: ${props => props.theme.colors.headerFooterBackground};
 
   @media (max-width: 602px) {
