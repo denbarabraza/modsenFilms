@@ -12,8 +12,8 @@ describe('BlockGenre', () => {
   test('should renders all categories in button', () => {
     const { getByText } = render(
       <Provider store={store}>
-        {categories.map(item => (
-          <Button title={item} type='categories' />
+        {categories.map((item, index) => (
+          <Button key={index} title={item} type='categories' />
         ))}
       </Provider>,
     );
@@ -28,8 +28,13 @@ describe('BlockGenre', () => {
   test('should be called when the button is clicked', () => {
     const { getByText } = render(
       <Provider store={store}>
-        {categories.map(item => (
-          <Button title={item} type='categories' callBack={() => onClick(item)} />
+        {categories.map((item, index) => (
+          <Button
+            key={index}
+            title={item}
+            type='categories'
+            callBack={() => onClick(item)}
+          />
         ))}
       </Provider>,
     );
