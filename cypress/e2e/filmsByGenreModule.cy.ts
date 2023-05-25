@@ -1,3 +1,5 @@
+import { cy } from 'local-cypress';
+
 describe('Films by genre Module', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -12,9 +14,11 @@ describe('Films by genre Module', () => {
   });
 
   it('when you click on the button `Crime`, the query "search for movies by genre" should go', () => {
+    const waitSecValue = 3000;
+
     cy.get('[data-cy="categorieBtn-Crime"]')
       .should('have.text', 'Crime')
-      .wait(3000)
+      .wait(waitSecValue)
       .click();
   });
 });

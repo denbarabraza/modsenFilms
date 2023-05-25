@@ -1,3 +1,5 @@
+import { cy } from 'local-cypress';
+
 describe('Search Module', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -19,12 +21,13 @@ describe('Search Module', () => {
   });
 
   it('when you click on the button, the query "search for movies by title" should go', () => {
+    const waitSecValue = 3000;
     const filmTitle = 'dream';
     const URL = `https://ott-details.p.rapidapi.com/search?title=${filmTitle}`;
 
     cy.intercept('GET', URL).as('fetchFilmsByTitle');
     cy.get('[data-cy="inputItem"]').type(filmTitle).should('have.value', filmTitle);
-    cy.get('[data-cy="searchBtn"]').wait(3000).click();
+    cy.get('[data-cy="searchBtn"]').wait(waitSecValue).click();
 
     cy.wait('@fetchFilmsByTitle', { timeout: 5000 }).then(interception => {
       expect(interception.request.url).to.equal(URL);
