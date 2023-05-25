@@ -22,21 +22,26 @@ export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
   switch (type) {
     case 'search':
       item = (
-        <ButtonItemSearch onClick={callBack} type='button'>
+        <ButtonItemSearch data-cy='searchBtn' onClick={callBack} type='button'>
           <SearchIMG src={search} alt='search' />
         </ButtonItemSearch>
       );
       break;
     case 'categories':
       item = (
-        <ButtonItemCategories active={isButtonActive} onClick={callBack} type='button'>
+        <ButtonItemCategories
+          data-cy={`categorieBtn-${title}`}
+          active={isButtonActive}
+          onClick={callBack}
+          type='button'
+        >
           {title}
         </ButtonItemCategories>
       );
       break;
     case 'other':
       item = (
-        <ButtonItemOther onClick={callBack} type='button'>
+        <ButtonItemOther data-cy='showMoreBtn' onClick={callBack} type='button'>
           {title}
         </ButtonItemOther>
       );

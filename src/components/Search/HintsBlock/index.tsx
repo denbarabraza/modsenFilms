@@ -14,7 +14,7 @@ export const HintsBlock: FC<IHintsBlock> = memo(({ searchTerm, onClickSelectHint
   });
 
   return (
-    <HintsBlockContainer>
+    <HintsBlockContainer data-cy='hintsBlock'>
       {isLoading && <InfoItem>Loading...</InfoItem>}
       {data?.results.length === 0 && <InfoItem>Nothing found...</InfoItem>}
       {data?.results.map(result => (

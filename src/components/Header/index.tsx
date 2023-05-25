@@ -28,7 +28,7 @@ export const Header = memo(() => {
   };
 
   return (
-    <Container>
+    <Container data-cy='header'>
       <Wrapper>
         <InnerWrapper>
           <BlockLogoApp>

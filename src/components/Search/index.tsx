@@ -16,7 +16,7 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState<string>(initialValue);
   const [isHintsOpen, setIsHintsOpen] = useState<boolean>(false);
 
-  const debouncedValue = useDebounce<string>(searchTerm, 300);
+  const debouncedValue = useDebounce<string>(searchTerm, 400);
 
   const handleClick = () => {
     onSearch(searchTerm.trim());
@@ -26,7 +26,6 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
     if (event.target.value.length > 0) setIsHintsOpen(true);
-    else setIsHintsOpen(false);
   };
 
   const onKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -37,7 +36,7 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
 
   const onClickDel = () => {
     setSearchTerm('');
-    onSearch('');
+    setIsHintsOpen(false);
   };
 
   const handleResultClick = (title: string) => {
@@ -54,13 +53,14 @@ export const Search: FC<ISearch> = memo(({ initialValue, onSearch }) => {
       <InputContainer>
         <InputItem
           key={initialValue}
+          data-cy='inputItem'
           type='text'
           placeholder='Search by title'
           value={searchTerm}
           onChange={onChange}
           onKeyUp={onKeyUp}
         />
-        <DelIcon src={del} alt='del icon' onClick={onClickDel} />
+        <DelIcon data-cy='deleteIcn' src={del} alt='del icon' onClick={onClickDel} />
       </InputContainer>
       <Button title='searchButton' callBack={handleClick} type='search' />
       {isHintsOpen && (

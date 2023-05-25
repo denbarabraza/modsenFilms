@@ -30,14 +30,18 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
   const selectedFilm = films?.find(e => e.imdbid === selectedFilmId);
 
   return (
-    <BlockFilmsList>
+    <BlockFilmsList data-cy='filmsList'>
       {films
         ?.filter((film, index) => index < filmLimit)
         .map(film => {
           const genreFilm = getGenreFilm(film);
 
           return (
-            <FilmsCard key={film.imdbid} onClick={() => handleMovieClick(film.imdbid)}>
+            <FilmsCard
+              key={film.imdbid}
+              onClick={() => handleMovieClick(film.imdbid)}
+              data-cy='filmsCard'
+            >
               <FilmsPoster
                 src={film.imageurl ? film.imageurl[0] : nopicture}
                 alt={film.title}

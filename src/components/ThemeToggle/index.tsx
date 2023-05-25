@@ -29,7 +29,7 @@ export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
           checked={theme !== ThemeEnum.light}
           onChange={handleToggleChange}
         />
-        <ToggleSlider />
+        <ToggleSlider data-cy='themeToggleSlider' />
       </ToggleLabel>
     </ToggleContainer>
   );
