@@ -34,6 +34,11 @@ export const filmsAPI = createApi({
   }),
 });
 
+/*
+ *It was difficult to find an API that allows you to receive movies for viewing (location - Belarus/Russia, and control access to their content or protect their business models).
+ *The only API I managed to get access from is the TMDB API (I get trailers, not movies). BUT! There is one caveat - using a VPN, otherwise there is no request...
+ *  */
+
 export const selectedFilmAPI = createApi({
   reducerPath: 'selectedFilmAPI',
   tagTypes: ['SelectedFilm'],

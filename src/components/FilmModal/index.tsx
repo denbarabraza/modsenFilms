@@ -9,6 +9,11 @@ import { useFetchSelectedFilmQuery } from '@/store/services/filmsService';
 import { getGenreFilm } from '@/utils/getGenreFilm';
 import { getKeyYouTube } from '@/utils/getKeyYouTube';
 
+/*
+ *The keys for playback do not always come (the result of the video is empty), so I specified the default key.
+ *If there is no API key, then we will enjoy the sounds of nature :)
+ *  */
+
 export const FilmModal: React.FC<IModalProps> = memo(
   ({ film, filmId, isOpen, onClose }) => {
     const { data, isLoading } = useFetchSelectedFilmQuery(filmId, {

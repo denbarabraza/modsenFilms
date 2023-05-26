@@ -1,5 +1,10 @@
 import { ISelectedFilm } from '@/interfaces/IFilms';
 
+/**
+ *The function is designed to get a key to play YouTube videos depending on the number of incoming results.
+ *Implemented search for official trailers (keys).
+ *  */
+
 export const getKeyYouTube = (data: ISelectedFilm | undefined) => {
   if (data?.videos.results.length === 0) return null;
 

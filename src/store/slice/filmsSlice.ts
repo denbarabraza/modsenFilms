@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IInitialState } from '@/store/slice/interface';
 
 /*
- In order not to throw genre and category values from parent components and not to use useState, I used slice...
+ In order not to throw genre and category, film limit values from parent components and not to use useState, I used slice...
  */
 
 const initialState: IInitialState = {
