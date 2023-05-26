@@ -14,24 +14,21 @@ export const InnerWrapper = styled.div`
 `;
 export const GenreItem = styled.div`
   display: flex;
-  padding: 7px 0;
   border-bottom: 1px solid ${props => props.theme.colors.mainBorder};
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   height: 5vh;
+  padding: 10px 0;
   @media (max-width: 1030px) {
-    height: 9vh;
-    padding-bottom: 10px;
+    height: 11vh;
   }
   @media (max-width: 550px) {
-    height: 11vh;
-    padding-bottom: 10px;
+    height: 16vh;
   }
-  @media (max-width: 400px) {
-    height: 15vh;
-    padding-bottom: 10px;
+  @media (max-width: 368px) {
+    height: 22vh;
   }
 `;
 export const BlockShowMore = styled.div`
