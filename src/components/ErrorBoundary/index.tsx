@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 
 import {
   IErrorBoundaryProps,
@@ -11,11 +11,13 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundary
     this.state = { hasError: false };
   }
 
+  // eslint-disable-next-line
   static getDerivedStateFromError(error: Error): IErrorBoundaryState {
     return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    // eslint-disable-next-line no-console
     console.error('Uncaught error:', error, errorInfo);
   }
 

@@ -19,7 +19,7 @@ export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
 
     setThemeToLocalStorage('storedTheme', rulesTheme);
     setTheme(rulesTheme);
-  }, [theme]);
+  }, [setTheme, theme]);
 
   return (
     <ToggleContainer open={open || false}>

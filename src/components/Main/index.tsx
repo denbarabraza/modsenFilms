@@ -20,7 +20,7 @@ export const Main = memo(() => {
 
   const onClickChangeLimit = useCallback(() => {
     dispatch(setFilmLimit(filmLimit + 16));
-  }, []);
+  }, [dispatch, filmLimit]);
 
   return (
     <Container>
