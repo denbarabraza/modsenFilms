@@ -12,7 +12,7 @@ describe('Search', () => {
   it('should call the search function with the query when the search button is clicked', () => {
     const { getByRole } = render(
       <Provider store={store}>
-        <Search initialValue='' onSearch={searchMock} />
+        <Search onSearch={searchMock} />
       </Provider>,
     );
     const searchInput = getByRole('textbox');
@@ -21,15 +21,15 @@ describe('Search', () => {
 
     fireEvent.change(searchInput, { target: { value: query } });
     fireEvent.click(searchButton);
-    expect(searchMock).toHaveBeenCalledWith(query);
     expect(searchInput).toBeInTheDocument();
     expect(searchButton).toBeInTheDocument();
+    expect(searchMock).toHaveBeenCalledWith(query);
   });
 
   it('should clear the input fields when clicking on the icon', () => {
     const { getByRole, getByAltText } = render(
       <Provider store={store}>
-        <Search initialValue='' onSearch={searchMock} />
+        <Search onSearch={searchMock} />
       </Provider>,
     );
     const searchInput = getByRole('textbox');
@@ -38,13 +38,15 @@ describe('Search', () => {
 
     fireEvent.change(searchInput, { target: { value: query } });
     fireEvent.click(searchIcon);
+    expect(searchInput).toBeInTheDocument();
+    expect(searchIcon).toBeInTheDocument();
     expect(searchMock).toHaveBeenCalledWith('');
   });
 
   it('hints should appear when the input value is more than one character', () => {
     const { getByRole } = render(
       <Provider store={store}>
-        <Search initialValue='' onSearch={searchMock} />
+        <Search onSearch={searchMock} />
       </Provider>,
     );
 
