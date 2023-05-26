@@ -1,4 +1,4 @@
-import { ISelectedFilm } from '@/interfaces/films';
+import { ISelectedFilm } from '@/interfaces/IFilms';
 
 export const getKeyYouTube = (data: ISelectedFilm | undefined) => {
   if (data?.videos.results.length === 0) return null;

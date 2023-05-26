@@ -1,4 +1,4 @@
-import { IFilmsResults } from '@/interfaces/films';
+import { IFilmsResults } from '@/interfaces/IFilms';
 
 export const getGenreFilm = (film: IFilmsResults | undefined) => {
   return film && film.genre.length > 1

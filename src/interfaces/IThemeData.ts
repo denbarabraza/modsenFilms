@@ -1,6 +1,6 @@
 import { ThemeEnum } from '@/constans/themes';
 
-export interface ITheme {
+export interface IThemeData {
   theme: ThemeEnum;
   setTheme: (arg: ThemeEnum) => void;
 }

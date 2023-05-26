@@ -1,1 +1,1 @@
-export type LocalStorageKeys = 'storedTheme';
+export type LocalStorageKey = 'storedTheme';

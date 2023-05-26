@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { BlockSocialItem, IconFooter } from '@/components/Footer/styled';
 import { socialData } from '@/constans/socialData';
 
-export const BlockSocial = memo(() => {
+export const BlockSocial = () => {
   return (
     <BlockSocialItem>
       {socialData.map(s => {
@@ -15,4 +15,4 @@ export const BlockSocial = memo(() => {
       })}
     </BlockSocialItem>
   );
-});
+};

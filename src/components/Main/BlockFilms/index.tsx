@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { Loader } from '@/components/Loader';
 import { FilmsList } from '@/components/Main/FilmsList';
@@ -10,7 +10,7 @@ import {
   useFetchFilmsQuery,
 } from '@/store/services/filmsService';
 
-export const BlockFilms = memo(() => {
+export const BlockFilms = () => {
   const genre = useAppSelector(getGenreSelector);
   const title = useAppSelector(getTitleSelector);
 
@@ -45,4 +45,4 @@ export const BlockFilms = memo(() => {
   if (isSearchingByTitle) return <FilmsList films={searchedByTitle?.results} />;
 
   return null;
-});
+};

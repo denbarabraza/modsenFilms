@@ -15,7 +15,4 @@ export interface ITheme {
     toggleBorder: string;
     hoverBoxShadow: string;
   };
-  mediaQueries: {
-    mobile: string;
-  };
 }

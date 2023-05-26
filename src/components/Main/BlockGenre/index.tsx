@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { Button } from '@/components/Button';
 import { GenreItem } from '@/components/Main/styled';
@@ -6,7 +6,7 @@ import { genreFilms } from '@/constans/genreFilms';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { setGenre, setTitle } from '@/store/slice/filmsSlice';
 
-export const BlockGenre = memo(() => {
+export const BlockGenre = () => {
   const dispatch = useAppDispatch();
 
   const onClickSetGenre = (genre?: string) => {
@@ -28,4 +28,4 @@ export const BlockGenre = memo(() => {
       })}
     </GenreItem>
   );
-});
+};

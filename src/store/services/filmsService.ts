@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IFilms, ISelectedFilm } from '@/interfaces/films';
+import { IFilms, ISelectedFilm } from '@/interfaces/IFilms';
 
 const API_KEY_RAPID = process.env.X_RAPIDAPI_KEY;
 const API_KEY_TMDB = process.env.X_TMDBAPI_KEY;

@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { Container, Spinner, Wrapper } from '@/components/Loader/styled';
 
-export const Loader = memo(() => {
+export const Loader = () => {
   return (
     <Container>
       <Wrapper>
@@ -10,4 +10,4 @@ export const Loader = memo(() => {
       </Wrapper>
     </Container>
   );
-});
+};

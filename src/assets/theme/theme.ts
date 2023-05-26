@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 import { ThemeEnum } from '@/constans/themes';
-import { ITheme } from '@/interfaces/styled';
+import { ITheme } from '@/interfaces/ITheme';
 
 const baseTheme: ITheme = {
   colors: {
@@ -19,9 +19,6 @@ const baseTheme: ITheme = {
     toggleCircle: '#F17900',
     toggleBorder: '#F17900',
     hoverBoxShadow: '#F17900',
-  },
-  mediaQueries: {
-    mobile: '@media (max-width: 767px)',
   },
 };
 
@@ -49,8 +46,5 @@ export const darkTheme: DefaultTheme = {
     toggleCircle: '#fff',
     toggleBorder: '#F17900',
     hoverBoxShadow: '#E5E4E8',
-  },
-  mediaQueries: {
-    mobile: '@media (max-width: 767px)',
   },
 };

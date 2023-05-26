@@ -1,6 +1,6 @@
 import { ThemeEnum } from '@/constans/themes';
-import { LocalStorageKeys } from '@/interfaces/localStorage';
+import { LocalStorageKey } from '@/interfaces/localStorage';
 
-export const setThemeToLocalStorage = (key: LocalStorageKeys, value: ThemeEnum) => {
+export const setThemeToLocalStorage = (key: LocalStorageKey, value: ThemeEnum) => {
   localStorage.setItem(key, value);
 };
