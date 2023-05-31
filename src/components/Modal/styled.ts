@@ -34,6 +34,6 @@ export const ModalContent = styled.div<{ isOpen: boolean }>`
   transform: ${({ isOpen }) => (isOpen ? '' : 'scale(1)')};
   @media (max-width: 574px) {
     width: 80vw;
-    height: 80vh;
+    max-height: 92vh;
   }
 `;
