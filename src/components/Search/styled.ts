@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: row;
   position: relative;
-  @media (max-width: 602px) {
+  @media (max-width: 690px) {
     width: 100%;
     grid-area: 2 / 1 / 3 / 3;
     justify-content: center;
@@ -26,7 +26,7 @@ export const InputItem = styled.input`
   height: 100%;
   padding-left: 10px;
   transition: all 0.2s ease 0s;
-  font-family: 'Rockwell Condensed', sans-serif;
+  font-family: 'Kalam', sans-serif;
   font-size: 16px;
   line-height: 16px;
   border: 1px solid #939292;
@@ -35,7 +35,7 @@ export const InputItem = styled.input`
     border: 1px solid #212121;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 850px) {
     width: 250px;
   }
 `;

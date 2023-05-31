@@ -38,7 +38,7 @@ export const BlockAboutUs = styled.div`
   align-items: center;
   width: 100%;
   margin: 20px 0 20px 0;
-  @media (max-width: 605px) {
+  @media (max-width: 705px) {
     flex-direction: column;
     gap: 20px;
   }
@@ -64,6 +64,10 @@ export const BlockInfoEl = styled.a`
   @media (max-width: 465px) {
     font-size: 16px;
   }
+
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `;
 export const BlockInfoItem = styled.div`
   display: flex;
@@ -78,7 +82,7 @@ export const BlockRightsInfo = styled.div`
   padding-bottom: 10px;
   color: ${props => props.theme.colors.fontColor};
 
-  @media (max-width: 465px) {
-    font-size: 14px;
+  @media (max-width: 420px) {
+    font-size: 12px;
   }
 `;

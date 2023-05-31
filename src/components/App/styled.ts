@@ -5,6 +5,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     position: relative;
     box-sizing: border-box;
-    font-family: "Rockwell Condensed", sans-serif;
+    font-family: "Kalam", sans-serif;
   }
 `;

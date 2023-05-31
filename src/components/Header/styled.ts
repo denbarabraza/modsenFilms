@@ -11,7 +11,7 @@ export const Container = styled.div`
   z-index: 2;
   background-color: ${props => props.theme.colors.headerFooterBackground};
 
-  @media (max-width: 602px) {
+  @media (max-width: 690px) {
     height: 100px;
     width: 100vw;
     padding: 5px 0;
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  @media (max-width: 602px) {
+  @media (max-width: 690px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -39,7 +39,7 @@ export const BlockLogoApp = styled.div`
   justify-content: flex-start;
   gap: 5px;
 
-  @media (max-width: 602px) {
+  @media (max-width: 690px) {
     justify-content: flex-start;
     align-items: center;
     grid-area: 1 / 1 / 2 / 2;
@@ -47,7 +47,7 @@ export const BlockLogoApp = styled.div`
   }
 `;
 export const BlockNameApp = styled.div`
-  font-family: 'Rockwell Condensed', sans-serif;
+  font-family: 'Kalam', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

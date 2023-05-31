@@ -21,13 +21,13 @@ export const GenreItem = styled.div`
   flex-wrap: wrap;
   height: 5vh;
   padding: 10px 0;
-  @media (max-width: 1030px) {
+  @media (max-width: 1232px) {
     height: 11vh;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 750px) {
     height: 16vh;
   }
-  @media (max-width: 368px) {
+  @media (max-width: 568px) {
     height: 22vh;
   }
 `;
@@ -71,7 +71,7 @@ export const FilmsCard = styled.div`
   animation: ${slideInFromBottom} 0.5s ease-out;
 
   display: grid;
-  grid-template-rows: 1.5fr 0.25fr 1fr;
+  grid-template-rows: 0.7fr 0.1fr 1fr;
 
   &:hover {
     box-shadow: 0 2px 3px 2px ${props => props.theme.colors.hoverBoxShadow};

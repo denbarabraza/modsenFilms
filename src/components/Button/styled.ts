@@ -21,7 +21,7 @@ export const ButtonItemCategories = styled.button<{ active: boolean }>`
   text-align: center;
   margin: 2px;
   padding: 5px 10px;
-  font-family: 'Rockwell Condensed', sans-serif;
+  font-family: 'Kalam', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -45,7 +45,7 @@ export const ButtonItemOther = styled.button`
   margin: 2px;
   padding: 5px 10px;
   cursor: pointer;
-  font-family: 'Rockwell Condensed', sans-serif;
+  font-family: 'Kalam', sans-serif;
   border: none;
   border-radius: 30px;
   transition: all 0.2s ease-in-out;
