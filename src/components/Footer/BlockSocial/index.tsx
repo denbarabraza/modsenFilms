@@ -6,10 +6,12 @@ import { socialData } from '@/constans/socialData';
 export const BlockSocial = () => {
   return (
     <BlockSocialItem>
-      {socialData.map(s => {
+      {socialData.map(social => {
+        const { id, href, img } = social;
+
         return (
-          <a key={s.id} href={s.href} target='_blank' rel='noreferrer'>
-            <IconFooter src={s.img} />
+          <a key={id} href={href} target='_blank' rel='noreferrer'>
+            <IconFooter src={img} />
           </a>
         );
       })}

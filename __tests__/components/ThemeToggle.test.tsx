@@ -4,8 +4,8 @@ import { fireEvent, render } from '@testing-library/react';
 
 import { darkTheme, lightTheme } from '@/assets/theme/theme';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { ThemeEnum } from '@/constans/themes';
 import { ThemeContext } from '@/context';
+import { ThemeEnum } from '@/types/themes';
 
 describe('Toggle', () => {
   it('should switch to dark theme when toggle is clicked', () => {

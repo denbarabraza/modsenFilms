@@ -8,11 +8,13 @@ export const BlockInfo: FC<IBlockInfo> = memo(({ rules }) => {
   return (
     <BlockInfoItem>
       {aboutUsData
-        .filter(item => item.id % 2 === rules)
-        .map(item => {
+        .filter(aboutUsItem => aboutUsItem.id % 2 === rules)
+        .map(aboutUsItem => {
+          const { id, href, value } = aboutUsItem;
+
           return (
-            <BlockInfoEl key={item.id} href={item.href} target='_blank'>
-              {item.value}
+            <BlockInfoEl key={id} href={href} target='_blank'>
+              {value}
             </BlockInfoEl>
           );
         })}

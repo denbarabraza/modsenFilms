@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 
 import { Button } from '@/components/Button';
 import { BlockFilms } from '@/components/Main/BlockFilms';
@@ -15,22 +15,25 @@ import { getFilmLimitSelector } from '@/store/selectors/filmsSelectors';
 import { setFilmLimit } from '@/store/slice/filmsSlice';
 
 export const Main = memo(() => {
+  const [isResultFilms, setIsResultFilms] = useState(true);
   const filmLimit = useAppSelector(getFilmLimitSelector);
   const dispatch = useAppDispatch();
 
   const onClickChangeLimit = useCallback(() => {
     dispatch(setFilmLimit(filmLimit + 16));
-  }, [dispatch, filmLimit]);
+  }, [filmLimit]);
 
   return (
     <Container>
       <Wrapper>
         <InnerWrapper>
           <BlockGenre />
-          <BlockFilms />
-          <BlockShowMore>
-            <Button title='Show More' type='other' callBack={onClickChangeLimit} />
-          </BlockShowMore>
+          <BlockFilms isResultFilms={setIsResultFilms} />
+          {isResultFilms && (
+            <BlockShowMore>
+              <Button title='Show More' type='other' callBack={onClickChangeLimit} />
+            </BlockShowMore>
+          )}
         </InnerWrapper>
       </Wrapper>
     </Container>

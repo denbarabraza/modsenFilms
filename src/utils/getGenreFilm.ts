@@ -1,4 +1,4 @@
-import { IFilmsResults } from '@/interfaces/IFilms';
+import { IFilmsResults } from '@/types/IFilms';
 
 /**
  *The function is designed to correctly display genres (commas, indents) depending on the condition

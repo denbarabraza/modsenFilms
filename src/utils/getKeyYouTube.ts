@@ -1,4 +1,4 @@
-import { ISelectedFilm } from '@/interfaces/IFilms';
+import { ISelectedFilm } from '@/types/IFilms';
 
 /**
  *The function is designed to get a key to play YouTube videos depending on the number of incoming results.

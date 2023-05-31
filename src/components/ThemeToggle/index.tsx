@@ -7,9 +7,9 @@ import {
   ToggleLabel,
   ToggleSlider,
 } from '@/components/ThemeToggle/styled';
-import { ThemeEnum } from '@/constans/themes';
 import { useTheme } from '@/hooks/useTheme';
-import { setThemeToLocalStorage } from '@/utils/localStorage/setTheme';
+import { ThemeEnum } from '@/types/themes';
+import { setThemeToLocalStorage } from '@/utils/localStorage';
 
 export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
   const { theme, setTheme } = useTheme();
@@ -19,7 +19,7 @@ export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
 
     setThemeToLocalStorage('storedTheme', rulesTheme);
     setTheme(rulesTheme);
-  }, [setTheme, theme]);
+  }, [theme]);
 
   return (
     <ToggleContainer open={open || false}>

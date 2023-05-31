@@ -1,16 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { IFilms, ISelectedFilm } from '@/interfaces/IFilms';
+import { IFilms, ISelectedFilm } from '@/types/IFilms';
 
 const API_KEY_RAPID = process.env.X_RAPIDAPI_KEY;
 const API_KEY_TMDB = process.env.X_TMDBAPI_KEY;
+const API_URL_RAPID = process.env.X_API_URL_RAPIDAPI;
+const API_URL_TMDB = process.env.X_API_URL_TMDBAPI;
 
 export const filmsAPI = createApi({
   reducerPath: 'filmsAPI',
   tagTypes: ['Films'],
   keepUnusedDataFor: 86400,
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://ott-details.p.rapidapi.com/',
+    baseUrl: API_URL_RAPID,
     headers: {
       'X-RapidAPI-Key': API_KEY_RAPID,
       'X-RapidAPI-Host': 'ott-details.p.rapidapi.com',
@@ -44,7 +46,7 @@ export const selectedFilmAPI = createApi({
   tagTypes: ['SelectedFilm'],
   keepUnusedDataFor: 86400,
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.themoviedb.org/3/movie',
+    baseUrl: API_URL_TMDB,
   }),
   endpoints: builder => ({
     fetchSelectedFilm: builder.query<ISelectedFilm, string>({

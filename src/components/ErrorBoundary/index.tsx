@@ -11,8 +11,7 @@ export class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundary
     this.state = { hasError: false };
   }
 
-  // eslint-disable-next-line
-  static getDerivedStateFromError(error: Error): IErrorBoundaryState {
+  static getDerivedStateFromError(): IErrorBoundaryState {
     return { hasError: true };
   }
 

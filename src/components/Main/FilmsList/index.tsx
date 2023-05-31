@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 
 import nopicture from '@/assets/image/nopicture.png';
 import { FilmModal } from '@/components/FilmModal';
@@ -11,11 +11,17 @@ import {
   Title,
 } from '@/components/Main/styled';
 import { useAppSelector } from '@/hooks/useAppSelector';
-import { getFilmLimitSelector } from '@/store/selectors/filmsSelectors';
+import {
+  getFilmLimitSelector,
+  getGenreSelector,
+  getTitleSelector,
+} from '@/store/selectors/filmsSelectors';
 import { getGenreFilm } from '@/utils/getGenreFilm';
 
 export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
   const filmLimit = useAppSelector(getFilmLimitSelector);
+  const genre = useAppSelector(getGenreSelector);
+  const title = useAppSelector(getTitleSelector);
 
   const [selectedFilmId, setSelectedFilmId] = useState<string | null>(null);
 
@@ -28,6 +34,8 @@ export const FilmsList: FC<IFilmsList> = memo(({ films }) => {
   };
 
   const selectedFilm = films?.find(e => e.imdbid === selectedFilmId);
+
+  useEffect(() => {}, [genre, title]);
 
   return (
     <BlockFilmsList data-cy='filmsList'>

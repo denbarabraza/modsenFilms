@@ -1,4 +1,4 @@
-import { IFilmsResults } from '@/interfaces/IFilms';
+import { IFilmsResults } from '@/types/IFilms';
 
 export interface IFilmsList {
   films?: IFilmsResults[];

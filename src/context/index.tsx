@@ -2,9 +2,9 @@ import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { darkTheme, lightTheme } from '@/assets/theme/theme';
-import { ThemeEnum } from '@/constans/themes';
-import { IThemeData } from '@/interfaces/IThemeData';
-import { getTheme } from '@/utils/localStorage/getTheme';
+import { IThemeData } from '@/types/IThemeData';
+import { ThemeEnum } from '@/types/themes';
+import { getTheme } from '@/utils/localStorage';
 
 const defaultState = {
   theme: ThemeEnum.light,

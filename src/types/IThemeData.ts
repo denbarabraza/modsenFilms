@@ -1,4 +1,4 @@
-import { ThemeEnum } from '@/constans/themes';
+import { ThemeEnum } from '@/types/themes';
 
 export interface IThemeData {
   theme: ThemeEnum;

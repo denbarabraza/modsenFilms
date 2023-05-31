@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Loader } from '@/components/Loader';
 import { FilmsList } from '@/components/Main/FilmsList';
@@ -10,7 +10,11 @@ import {
   useFetchFilmsQuery,
 } from '@/store/services/filmsService';
 
-export const BlockFilms = () => {
+interface IBlockFilms {
+  isResultFilms: (resultFilms: boolean) => void;
+}
+
+export const BlockFilms: FC<IBlockFilms> = ({ isResultFilms }) => {
   const genre = useAppSelector(getGenreSelector);
   const title = useAppSelector(getTitleSelector);
 
@@ -32,17 +36,29 @@ export const BlockFilms = () => {
   });
 
   if (filmsByGenreLoading || filmsByTitleLoading) return <Loader />;
-  if (filmsByGenreError || filmsByTitleError)
+  if (filmsByGenreError || filmsByTitleError) {
     return <InfoItem>Oops! Something went wrong, error...</InfoItem>;
+  }
 
   if (filmsByGenreLoading || filmsByGenreError) return null;
   if (filmsByTitleError || filmsByTitleLoading) return null;
 
-  if (searchedByGenre?.results.length === 0 || searchedByTitle?.results.length === 0)
-    return <InfoItem>Oops! Something went wrong, empty response...</InfoItem>;
+  if (searchedByGenre?.results.length === 0) {
+    isResultFilms(false);
 
-  if (isSearchingByGenre) return <FilmsList films={searchedByGenre?.results} />;
-  if (isSearchingByTitle) return <FilmsList films={searchedByTitle?.results} />;
+    return <InfoItem>Oops! Something went wrong, empty response...</InfoItem>;
+  }
+
+  if (isSearchingByGenre) {
+    isResultFilms(true);
+
+    return <FilmsList films={searchedByGenre?.results} />;
+  }
+  if (isSearchingByTitle) {
+    isResultFilms(true);
+
+    return <FilmsList films={searchedByTitle?.results} />;
+  }
 
   return null;
 };
