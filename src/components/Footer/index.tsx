@@ -9,7 +9,7 @@ import {
   Container,
   InnerWrapper,
   Wrapper,
-} from '@/components/Footer/styled';
+} from './styled';
 
 export const Footer = () => {
   return (

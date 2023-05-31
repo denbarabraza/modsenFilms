@@ -1,6 +1,12 @@
 import React from 'react';
 
 import youtube from '@/assets/image/youtube.png';
+import { Menu } from '@/components/Menu';
+import { Search } from '@/components/Search';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { setGenre, setTitle } from '@/store/slice/filmsSlice';
+
 import {
   BlockImageApp,
   BlockLogoApp,
@@ -8,12 +14,7 @@ import {
   Container,
   InnerWrapper,
   Wrapper,
-} from '@/components/Header/styled';
-import { Menu } from '@/components/Menu';
-import { Search } from '@/components/Search';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { setGenre, setTitle } from '@/store/slice/filmsSlice';
+} from './styled';
 
 export const Header = () => {
   const dispatch = useAppDispatch();

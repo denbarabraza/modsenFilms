@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { BurgerMenu } from 'src/components/BurgerMenu';
 
-import { StyledLink, StyledMenu } from '@/components/Menu/styled';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
+
+import { StyledLink, StyledMenu } from './styled';
 
 export const Menu = () => {
   const [open, setOpen] = useState<boolean>(false);

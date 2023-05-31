@@ -3,16 +3,12 @@ import React, { memo, useCallback, useState } from 'react';
 import { Button } from '@/components/Button';
 import { BlockFilms } from '@/components/Main/BlockFilms';
 import { BlockGenre } from '@/components/Main/BlockGenre';
-import {
-  BlockShowMore,
-  Container,
-  InnerWrapper,
-  Wrapper,
-} from '@/components/Main/styled';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { useAppSelector } from '@/hooks/useAppSelector';
 import { getFilmLimitSelector } from '@/store/selectors/filmsSelectors';
 import { setFilmLimit } from '@/store/slice/filmsSlice';
+
+import { BlockShowMore, Container, InnerWrapper, Wrapper } from './styled';
 
 export const Main = memo(() => {
   const [isResultFilms, setIsResultFilms] = useState(true);

@@ -3,14 +3,10 @@ import React, { FC, memo } from 'react';
 import del from '@/assets/image/close.png';
 import { Button } from '@/components/Button';
 import { HintsBlock } from '@/components/Search/HintsBlock';
-import { ISearch } from '@/components/Search/interface';
-import {
-  Container,
-  DelIcon,
-  InputContainer,
-  InputItem,
-} from '@/components/Search/styled';
 import { useSearchControl } from '@/hooks/useSearchControl';
+
+import { ISearch } from './interface';
+import { Container, DelIcon, InputContainer, InputItem } from './styled';
 
 export const Search: FC<ISearch> = memo(({ onSearch }) => {
   const {

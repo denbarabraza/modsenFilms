@@ -1,15 +1,16 @@
 import React, { FC, memo } from 'react';
 
 import search from '@/assets/image/search.png';
-import { IButton } from '@/components/Button/interface';
+import { useAppSelector } from '@/hooks/useAppSelector';
+import { getGenreSelector } from '@/store/selectors/filmsSelectors';
+
+import { IButton } from './interface';
 import {
   ButtonItemCategories,
   ButtonItemOther,
   ButtonItemSearch,
   SearchIMG,
-} from '@/components/Button/styled';
-import { useAppSelector } from '@/hooks/useAppSelector';
-import { getGenreSelector } from '@/store/selectors/filmsSelectors';
+} from './styled';
 
 export const Button: FC<IButton> = memo(({ title, callBack, type }) => {
   const genre = useAppSelector(getGenreSelector);

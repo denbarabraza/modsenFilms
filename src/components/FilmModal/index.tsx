@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
 
-import { IModalProps } from '@/components/FilmModal/interface';
-import { Description, DescriptionBlock, Title } from '@/components/FilmModal/styled';
 import { Loader } from '@/components/Loader';
 import { Modal } from '@/components/Modal';
 import { YoutubePlayer } from '@/components/YoutubePlayer';
 import { useFetchSelectedFilmQuery } from '@/store/services/filmsService';
 import { getGenreFilm } from '@/utils/getGenreFilm';
 import { getKeyYouTube } from '@/utils/getKeyYouTube';
+
+import { IModalProps } from './interface';
+import { Description, DescriptionBlock, Title } from './styled';
 
 /*
  *The keys for playback do not always come (the result of the video is empty), so I specified the default key.

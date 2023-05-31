@@ -1,15 +1,11 @@
 import React, { FC, memo, useCallback } from 'react';
 
-import { IThemeToggle } from '@/components/ThemeToggle/interface';
-import {
-  ToggleContainer,
-  ToggleInput,
-  ToggleLabel,
-  ToggleSlider,
-} from '@/components/ThemeToggle/styled';
 import { useTheme } from '@/hooks/useTheme';
 import { ThemeEnum } from '@/types/themes';
 import { setThemeToLocalStorage } from '@/utils/localStorage';
+
+import { IThemeToggle } from './interface';
+import { ToggleContainer, ToggleInput, ToggleLabel, ToggleSlider } from './styled';
 
 export const ThemeToggle: FC<IThemeToggle> = memo(({ open }) => {
   const { theme, setTheme } = useTheme();

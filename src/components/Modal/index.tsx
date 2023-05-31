@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 
-import { IModal } from '@/components/Modal/interface';
-import { ModalContent, ModalItem } from '@/components/Modal/styled';
+import { IModal } from './interface';
+import { ModalContent, ModalItem } from './styled';
 
 export const Modal: FC<IModal> = memo(({ children, onClose, isOpen }) => {
   return (

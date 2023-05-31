@@ -1,8 +1,9 @@
 import React, { FC, memo } from 'react';
 
-import { IBlockInfo } from '@/components/Footer/BlockInfo/interface';
 import { BlockInfoEl, BlockInfoItem } from '@/components/Footer/styled';
 import { aboutUsData } from '@/constans/aboutUsData';
+
+import { IBlockInfo } from './interface';
 
 export const BlockInfo: FC<IBlockInfo> = memo(({ rules }) => {
   return (

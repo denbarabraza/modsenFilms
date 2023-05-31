@@ -17,5 +17,5 @@ export const Description = styled.p`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;

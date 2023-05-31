@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
-import { IYoutubePlayer } from '@/components/YoutubePlayer/interface';
-import { Container, Video } from '@/components/YoutubePlayer/styled';
+import { IYoutubePlayer } from './interface';
+import { Container, Video } from './styled';
 
 export const YoutubePlayer: React.FC<IYoutubePlayer> = memo(({ videoId }) => {
   return (

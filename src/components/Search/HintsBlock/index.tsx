@@ -1,12 +1,9 @@
 import React, { FC, memo } from 'react';
 
-import { IHintsBlock } from '@/components/Search/HintsBlock/interface';
-import {
-  HintItem,
-  HintsBlockContainer,
-  InfoItem,
-} from '@/components/Search/HintsBlock/styled';
 import { useFetchByTitleFilmsQuery } from '@/store/services/filmsService';
+
+import { IHintsBlock } from './interface';
+import { HintItem, HintsBlockContainer, InfoItem } from './styled';
 
 export const HintsBlock: FC<IHintsBlock> = memo(({ searchTerm, onClickSelectHint }) => {
   const { data, isLoading } = useFetchByTitleFilmsQuery(searchTerm, {
